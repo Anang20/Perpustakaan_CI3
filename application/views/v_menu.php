@@ -51,7 +51,7 @@
 
     <!-- Nav Item - Data Master -->
     <li class="nav-item active">
-        <a class="nav-link" href="<?= base_url('login/logout'); ?>">
+        <a class="nav-link" data-toggle="modal" data-target="#logoutModal" href="#">
             <i class="fas fa-sign-out-alt"></i>
             <span>Logout</span>
         </a>
