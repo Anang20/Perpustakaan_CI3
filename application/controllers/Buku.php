@@ -21,7 +21,6 @@ class Buku extends CI_Controller {
     {
         $isi['content'] = 'buku/form_buku';
         $isi['judul'] = 'Form Tambah Buku';
-        $isi['id_buku'] = $this->m_buku->id_buku();
         $this->load->view('v_dashboard', $isi);
     }
 

@@ -2,7 +2,6 @@
     <div class="card shadow">
         <div class="card-body">
             <form method="POST" action="<?= base_url('Buku/simpan'); ?>">
-                <input type="hidden" class="form-control" name="id_buku" value="<?= $id_buku; ?>" readonly required>
                 <div class="row mb-3">
                     <label for="judul_buku" class="col-sm-2 col-form-label">Judul Buku</label>
                     <div class="col-sm-9">
