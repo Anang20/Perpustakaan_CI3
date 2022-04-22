@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 10 Apr 2022 pada 14.57
+-- Waktu pembuatan: 22 Apr 2022 pada 03.43
 -- Versi server: 10.4.14-MariaDB
 -- Versi PHP: 7.4.11
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `anggota` (
-  `id_anggota` varchar(10) NOT NULL,
+  `id_anggota` int(11) NOT NULL,
   `nama_anggota` varchar(255) NOT NULL,
   `jenis_kelamin` varchar(20) NOT NULL,
   `alamat` text NOT NULL,
@@ -40,11 +40,33 @@ CREATE TABLE `anggota` (
 --
 
 INSERT INTO `anggota` (`id_anggota`, `nama_anggota`, `jenis_kelamin`, `alamat`, `no_hp`) VALUES
-('AG001', 'Anang', 'Laki-laki', 'Kancilan RT003/W001', '089670068639'),
-('AG002', 'Reza Nur', 'Laki-laki', 'krasak', '085xxxxxxxxxxx'),
-('AG003', 'Zanuk', 'Laki-laki', 'Wedelan', '082xxxxxxxxxxxx'),
-('AG004', 'Arian dita', 'Laki-laki', 'Bondo jepara', '089xxxxxxxxxxxx'),
-('AG005', 'havis', 'Laki-laki', 'kembang', '08xxxxxxxxxxx');
+(1, 'Anang Syah ', 'Laki-laki', 'Kancilan RT3 RW1', '089670068639'),
+(2, 'Reza Nur', 'Laki-laki', 'krasak', '085xxxxxxxxxxx'),
+(3, 'Zaninuddin', 'Laki-laki', 'Wedelan', '082xxxxxxxxxxxx'),
+(4, 'havis', 'Laki-laki', 'kembang', '08xxxxxxxxxxx');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `buku`
+--
+
+CREATE TABLE `buku` (
+  `id_buku` int(11) NOT NULL,
+  `pengarang` varchar(255) NOT NULL,
+  `penerbit` varchar(255) NOT NULL,
+  `judul_buku` varchar(50) NOT NULL,
+  `tahun_terbit` int(11) NOT NULL,
+  `jumlah` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `buku`
+--
+
+INSERT INTO `buku` (`id_buku`, `pengarang`, `penerbit`, `judul_buku`, `tahun_terbit`, `jumlah`) VALUES
+(4, 'stefano', 'agus kotak', 'Belajar React  native', 2018, 10),
+(5, 'Anang', 'zorojuro', 'Belajar Laravel', 2022, 5);
 
 -- --------------------------------------------------------
 
@@ -78,6 +100,12 @@ ALTER TABLE `anggota`
   ADD PRIMARY KEY (`id_anggota`);
 
 --
+-- Indeks untuk tabel `buku`
+--
+ALTER TABLE `buku`
+  ADD PRIMARY KEY (`id_buku`);
+
+--
 -- Indeks untuk tabel `login`
 --
 ALTER TABLE `login`
@@ -86,6 +114,18 @@ ALTER TABLE `login`
 --
 -- AUTO_INCREMENT untuk tabel yang dibuang
 --
+
+--
+-- AUTO_INCREMENT untuk tabel `anggota`
+--
+ALTER TABLE `anggota`
+  MODIFY `id_anggota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT untuk tabel `buku`
+--
+ALTER TABLE `buku`
+  MODIFY `id_buku` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `login`
