@@ -2,12 +2,7 @@
     <div class="card shadow">
         <div class="card-body">
             <form method="POST" action="<?= base_url('anggota/update'); ?>">
-                <div class="row mb-3">
-                    <label for="id_anggota" class="col-sm-2 col-form-label">Id Anggota</label>
-                    <div class="col-sm-9">
-                    <input type="text" class="form-control" name="id_anggota" value="<?= $data['id_anggota']; ?>" readonly>
-                    </div>
-                </div>
+                <input type="hidden" class="form-control" name="id_anggota" value="<?= $data['id_anggota']; ?>" readonly>
                 <div class="row mb-3">
                     <label for="nama_anggota" class="col-sm-2 col-form-label">Nama Anggota</label>
                     <div class="col-sm-9">

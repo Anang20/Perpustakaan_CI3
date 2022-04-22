@@ -1,5 +1,5 @@
 <!-- Begin Page Content -->
-<div class="container-fluid" style="margin-top: 20px">
+<div class="container-fluid">
     <?php
         if (!empty($this->session->flashdata('info'))) {?>
             <div class="alert alert-success" role="alert"><?= $this->session->flashdata('info'); ?></div>         
@@ -19,7 +19,7 @@
                 <table class="table table-bordered table-striped text-center" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <td>Id Angota</td>
+                            <td>No</td>
                             <td>Nama Anggota</td>
                             <td>Jenis Kelamin</td>
                             <td>Alamat</td>
@@ -29,16 +29,17 @@
                     </thead>
                     <tbody>
                         <?php
+                            $no = 1;
                             foreach ($data_anggota as $row) {?>
                                 <tr>
-                                    <td><?= $row->id_anggota; ?></td>
+                                    <td><?= $no++; ?></td>
                                     <td><?= $row->nama_anggota; ?></td>
                                     <td><?= $row->jenis_kelamin; ?></td>
                                     <td><?= $row->alamat; ?></td>
                                     <td><?= $row->no_hp; ?></td>
                                     <td>
-                                        <a href="<?= base_url()?>anggota/edit/<?= $row->id_anggota; ?>" class="btn btn-success btn-xs">Edit</a>
-                                        <a href="<?= base_url()?>anggota/hapus/<?= $row->id_anggota; ?>" class="btn btn-danger btn-xs" onclick="return confirm('Anda Yakin Ingin Menghapus ?');">Hapus</a>
+                                        <a href="<?= base_url()?>anggota/edit/<?= $row->id_anggota; ?>" class="btn btn-sm btn-warning shadow-sm"><i class="fa fa-edit"></i> Edit</a>
+                                        <a href="<?= base_url()?>anggota/hapus/<?= $row->id_anggota; ?>" class="btn btn-sm btn-danger shadow-sm" onclick="return confirm('Anda Yakin Ingin Menghapus ?');"><i class="fa fa-trash"></i> Hapus</a>
                                     </td>
                                 </tr>
                             <?php }
