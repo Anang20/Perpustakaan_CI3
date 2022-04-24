@@ -38,6 +38,22 @@
         </a>
     </li>
 
+     <!-- Nav Item - Transaksi -->
+     <li class="nav-item active">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+            aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Transaksi</span>
+        </a>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Data Transaksi</h6>
+                <b><a class="collapse-item text-success" href="<?= base_url('Peminjaman') ?>">Peminjaman</a></b>
+                <b><a class="collapse-item text-success" href="<?= base_url('Pengembalian') ?>">Pengembalian</a></b>
+            </div>
+        </div>
+    </li>
+
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
 
