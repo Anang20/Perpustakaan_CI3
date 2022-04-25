@@ -52,7 +52,7 @@
                                         ?>
                                     </td>
                                     <td>
-                                        <span><a href="<?= base_url('Peminjaman/kembalikan/')?><?= $row->id_pinjam; ?>" class="btn btn-sm btn-primary shadow-sm" onclick="return confirm('Yakin Buku Ini Mau Dikembalikan')"><i class="fa fa-edit"></i> Kembalikan</a></span>
+                                        <span><a href="<?= base_url('Peminjaman/kembalikan/')?><?= $row->id_pinjam; ?>" class="btn btn-sm btn-success shadow-sm" onclick="return confirm('Yakin Buku Ini Mau Dikembalikan')"><i class="fa fa-edit"></i> Kembalikan</a></span>
                                     </td>
                                 </tr>
                             <?php }

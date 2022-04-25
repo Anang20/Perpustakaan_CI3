@@ -13,7 +13,7 @@
                 <div class="row mb-3">
                     <label for="jenis_kelamin" class="col-sm-2 col-form-label">Peminjam</label>
                     <div class="col-sm-9">
-                        <select name="id_anggota" class="form-control" required>
+                        <select name="id_anggota" id="anggota" class="form-control" required>
                             <option value=""> - Pilih Peminjam - </option>
                             <?php
                                 foreach ($peminjam AS $key) {?>
@@ -52,8 +52,8 @@
                 <div class="row mb-3">
                     <label for="" class="col-sm-2 col-form-label"></label>
                     <div class="col-sm-5">
-                        <a href="<?= base_url('Peminjaman') ?>" class="btn btn-warning mr-3">Cancel</a>
-                        <button type="submit" class="btn btn-success">Simpan</button>
+                        <a href="<?= base_url('Peminjaman') ?>" class="btn btn-warning mr-3"><i class="fas fa-arrow-circle-left pr-2"></i>Cancel</a>
+                        <button type="submit" class="btn btn-success"><i class="fas fa-save pr-2"></i>Simpan</button>
                     </div>
                 </div>
             </form>
@@ -79,6 +79,26 @@
                     location.reload();
                 }
             }
+        });
+    });
+
+    $(document).ready(function () {
+        // untuk menampilkan select option pencarian peminjam
+        $("#anggota").select2({
+            theme: 'bootstrap4',
+            placeholder: "- Pilih Peminjam -"
+        });
+        $(window).resize(function() {
+            $((".select2-container")).css("width", "100%");
+        });
+
+        
+        $("#id_buku").select2({
+            theme: 'bootstrap4',
+            placeholder: "- Pilih Buku -"
+        });
+        $(window).resize(function() {
+            $((".select2-container")).css("width", "100%");
         });
     });
 

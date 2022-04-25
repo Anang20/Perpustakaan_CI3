@@ -11,7 +11,7 @@
                 <div class="row mb-3">
                     <label for="jenis_kelamin" class="col-sm-2 col-form-label">Jenis Kelamin</label>
                     <div class="col-sm-9">
-                    <select name="jenis_kelamin" class="form-control" required>
+                    <select name="jenis_kelamin" class="form-control jenis_kelamin" required>
                         <option value=""> - Pilih Jenis Kelamin - </option>
                         <option value="Laki-laki"> Laki-laki </option>
                         <option value="Perempuan"> Perempuan </option>
@@ -33,11 +33,25 @@
                 <div class="row mb-3">
                     <label for="" class="col-sm-2 col-form-label"></label>
                     <div class="col-sm-5">
-                        <a href="<?= base_url('anggota') ?>" class="btn btn-warning mr-3">Cancel</a>
-                        <button type="submit" class="btn btn-success">Simpan</button>
+                        <a href="<?= base_url('anggota') ?>" class="btn btn-warning mr-3"><i class="fas fa-arrow-circle-left pr-2"></i>Cancel</a>
+                        <button type="submit" class="btn btn-success shadow-sm"><i class="fas fa-save pr-2"></i>Simpan</button>
                     </div>
                 </div>
             </form>
         </div>
     </div>
 </div>
+
+<script>
+    // untuk menampilkan select option pencarian  jenis kelamin
+    $(document).ready(function () {
+        $(".jenis_kelamin").select2({
+            theme: 'bootstrap4',
+            placeholder: "- Pilih Jenis Kelamin -"
+        });
+        $(window).resize(function() {
+            $((".select2-container")).css("width", "100%");
+        });
+
+    });
+</script>
