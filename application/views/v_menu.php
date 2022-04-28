@@ -2,7 +2,7 @@
 <ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url('Beranda'); ?>">
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-book"></i>
         </div>
@@ -42,7 +42,7 @@
      <li class="nav-item active">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
             aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-chart-line"></i>
+            <i class="fas fa-exchange-alt"></i>
             <span>Transaksi</span>
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -53,6 +53,23 @@
             </div>
         </div>
     </li>
+
+    <!-- Nav Item - Laporan -->
+    <li class="nav-item active">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+            aria-expanded="true" aria-controls="collapseUtilities">
+            <i class="fas fa-file-alt"></i>
+            <span>Laporan</span>
+        </a>
+        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+            data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Data Laporan</h6>
+                <b><a class="collapse-item text-success" href="<?= base_url('Laporan/peminjaman'); ?>">Laporan Peminjaman</a></b>
+            </div>
+        </div>
+    </li>
+
 
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">

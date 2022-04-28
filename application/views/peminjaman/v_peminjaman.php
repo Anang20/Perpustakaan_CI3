@@ -45,14 +45,14 @@
                                     <td>
                                         <?php
                                             if ($tgl_kembali >= $tgl_sekarang OR $selisih == 0) {
-                                                echo "<span style='background-color: orange; color:white; padding: 3px;'>Belum Dikembalikan</span>";
+                                                echo "<span class='badge badge-pill badge-warning'>Belum Dikembalikan</span>";
                                             } else {
-                                                echo "Telat <b style = 'color: red;'>".$selisih."</b> Hari <br> <span style='background-color: red; color:white;'> Denda Perhari = 1000</span>";
+                                                echo "Telat <b style = 'color: red;'>".$selisih."</b> Hari <br><span class='badge badge-pill badge-danger'> Denda Perhari = Rp1000</span>";
                                             }
                                         ?>
                                     </td>
                                     <td>
-                                        <span><a href="<?= base_url('Peminjaman/kembalikan/')?><?= $row->id_pinjam; ?>" class="btn btn-sm btn-success shadow-sm" onclick="return confirm('Yakin Buku Ini Mau Dikembalikan')"><i class="fa fa-edit"></i> Kembalikan</a></span>
+                                        <span><a href="<?= base_url('Peminjaman/kembalikan/')?><?= $row->id_pinjam; ?>" class="btn btn-sm btn-success shadow-sm" onclick="return confirm('Yakin Buku Ini Mau Dikembalikan')">Kembalikan</a></span>
                                     </td>
                                 </tr>
                             <?php }
