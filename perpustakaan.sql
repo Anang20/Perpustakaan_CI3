@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 24 Apr 2022 pada 06.31
+-- Waktu pembuatan: 29 Apr 2022 pada 03.58
 -- Versi server: 10.4.14-MariaDB
 -- Versi PHP: 7.4.11
 
@@ -40,7 +40,7 @@ CREATE TABLE `anggota` (
 --
 
 INSERT INTO `anggota` (`id_anggota`, `nama_anggota`, `jenis_kelamin`, `alamat`, `no_hp`) VALUES
-(2, 'Reza Nur', 'Laki-laki', 'krasak', '085xxxxxxxxxxx'),
+(2, 'Muhammad Reza Nur Aditya', 'Laki-laki', 'krasak bangsri', '0895361870926'),
 (3, 'Zaninuddin', 'Laki-laki', 'Wedelan', '082xxxxxxxxxxxx'),
 (12, 'yosafat', 'Laki-laki', 'tubanan', '082xxxxxxxxxxxx'),
 (13, 'Anang Syah Amirul Haqim', 'Laki-laki', 'Kancilan', '089670068639'),
@@ -48,9 +48,11 @@ INSERT INTO `anggota` (`id_anggota`, `nama_anggota`, `jenis_kelamin`, `alamat`, 
 (15, 'syifa', 'Perempuan', 'semarang', '085xxxxxxxxx'),
 (16, 'Ferdi', 'Laki-laki', 'Jepara', '082xxxxxxxxxxxx'),
 (17, 'Reza Ap', 'Laki-laki', 'Bangsri', '089xxxxxxxxxxxx'),
-(18, 'Jamal', 'Laki-laki', 'Bogor', '085xxxxxxxxx'),
 (19, 'Dinda', 'Perempuan', 'Jakarta', '085xxxxxxxxx'),
-(20, 'Zoro', 'Laki-laki', 'Jogjakarta', '08xxxxxxxxxxx');
+(20, 'Zorojuro', 'Perempuan', 'Jogjakarta', '08xxxxxxxxxxx'),
+(21, 'Linda', 'Perempuan', 'bekasi', '082xxxxxxxxxxxx'),
+(23, 'Ariandita', 'Laki-laki', 'Bondo', '085xxxxxxxxxxx'),
+(25, 'ANANG', 'Laki-laki', 'Jepara', '089670068639');
 
 -- --------------------------------------------------------
 
@@ -72,11 +74,13 @@ CREATE TABLE `buku` (
 --
 
 INSERT INTO `buku` (`id_buku`, `pengarang`, `penerbit`, `judul_buku`, `tahun_terbit`, `jumlah`) VALUES
-(8, 'stefano', 'agus kotak', 'Belajar Laravel', 2016, -1),
+(8, 'stefano lilipaly', 'agus kotak and wajek', 'Belajar Laravel', 2017, 5),
 (9, 'Anang', 'bagus', 'Belajar React JS', 2017, 9),
-(10, 'Wahyu', 'Wahyu', 'Pemrograman Android', 2020, 5),
+(10, 'Wahyu', 'Wahyu', 'Pemrograman Android', 2020, 3),
 (11, 'Brando', 'Brandon', 'Fundamental API', 2022, 19),
-(12, 'ahmad', 'ahmad', 'Pemrograman Javascript', 2022, 28);
+(12, 'ahmad', 'ahmad', 'Pemrograman Javascript', 2022, 28),
+(14, 'zanek', 'ccccc', 'gggggaaaaaaaa', 2000, 2),
+(15, 'Messi', 'lionel', 'PENGETAHUAN UMUM', 2000, 1);
 
 -- --------------------------------------------------------
 
@@ -120,9 +124,9 @@ CREATE TABLE `peminjaman` (
 INSERT INTO `peminjaman` (`id_pinjam`, `id_anggota`, `id_buku`, `tgl_pinjam`, `tgl_kembali`) VALUES
 (1, 13, 9, '2022-04-12', '2022-04-19'),
 (5, 15, 11, '2022-04-22', '2022-04-29'),
-(7, 16, 8, '2022-04-23', '2022-04-30'),
 (9, 2, 12, '2022-04-23', '2022-04-30'),
-(10, 18, 13, '2022-04-23', '2022-04-30');
+(10, 18, 13, '2022-04-23', '2022-04-30'),
+(13, 23, 10, '2022-04-28', '2022-05-05');
 
 --
 -- Trigger `peminjaman`
@@ -154,7 +158,11 @@ CREATE TABLE `pengembalian` (
 INSERT INTO `pengembalian` (`id_pengembalian`, `id_anggota`, `id_buku`, `tgl_pinjam`, `tgl_kembali`, `tgl_kembalikan`) VALUES
 (1, 14, 10, '2022-04-22', '2022-04-29', '2022-04-23'),
 (2, 17, 12, '2022-04-23', '2022-04-30', '2022-04-23'),
-(3, 16, 10, '2022-04-23', '2022-04-30', '2022-04-23');
+(3, 16, 10, '2022-04-23', '2022-04-30', '2022-04-23'),
+(4, 16, 8, '2022-04-23', '2022-04-30', '2022-04-24'),
+(5, 20, 14, '2022-04-25', '2022-05-02', '2022-04-25'),
+(6, 3, 10, '2022-04-28', '2022-05-05', '2022-04-28'),
+(7, 14, 14, '2022-04-28', '2022-05-05', '2022-04-28');
 
 --
 -- Indexes for dumped tables
@@ -198,31 +206,31 @@ ALTER TABLE `pengembalian`
 -- AUTO_INCREMENT untuk tabel `anggota`
 --
 ALTER TABLE `anggota`
-  MODIFY `id_anggota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_anggota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT untuk tabel `buku`
 --
 ALTER TABLE `buku`
-  MODIFY `id_buku` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_buku` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT untuk tabel `login`
 --
 ALTER TABLE `login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `peminjaman`
 --
 ALTER TABLE `peminjaman`
-  MODIFY `id_pinjam` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_pinjam` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT untuk tabel `pengembalian`
 --
 ALTER TABLE `pengembalian`
-  MODIFY `id_pengembalian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_pengembalian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
