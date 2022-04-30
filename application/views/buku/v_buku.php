@@ -20,7 +20,8 @@
                     <thead>
                         <tr>
                             <td>No</td>
-                            <td>Judul Buku</td>
+                            <td>Kode</td>
+                            <td>Judul</td>
                             <td>Pengarang</td>
                             <td>Penerbit</td>
                             <td>Tahun Terbit</td>
@@ -31,12 +32,13 @@
                     <tbody>
                         <?php
                             $no = 1;
-                            foreach ($data_buku AS $row) {?>
+                            foreach ($data_buku->result() as $row) {?>
                                 <tr>
                                     <td><?= $no++; ?></td>
+                                    <td><?= $row->kode_buku ?></td>
                                     <td><?= $row->judul_buku; ?></td>
-                                    <td><?= $row->pengarang; ?></td>
-                                    <td><?= $row->penerbit; ?></td>
+                                    <td><?= $row->nama_pengarang; ?></td>
+                                    <td><?= $row->nama_penerbit; ?></td>
                                     <td><?= $row->tahun_terbit; ?></td>
                                     <td><?= $row->jumlah; ?></td>
                                     <td>

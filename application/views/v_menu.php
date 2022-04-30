@@ -29,13 +29,22 @@
         </a>
     </li>
 
-    <!-- Nav Item - Data Buku  -->
+    <!-- Nav Item - Pages Master Buku -->
     <li class="nav-item active">
-        <!-- akan di arahkan ke controller anggota -->
-        <a class="nav-link" href="<?= base_url('Buku'); ?>">
+        <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
+            aria-controls="collapsePages">
             <i class="fas fa-book"></i>
-            <span>Data Buku</span>
+            <span>Master Buku</span>
         </a>
+        <div id="collapsePages" class="collapse show" aria-labelledby="headingPages"
+            data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Data Buku</h6>
+                <b><a class="collapse-item text-success" href="<?= base_url('Pengarang'); ?>">Pengarang</a></b>
+                <b><a class="collapse-item text-success" href="<?= base_url('Penerbit'); ?>">Penerbit</a></b>
+                <b><a class="collapse-item text-success" href="<?= base_url('Buku'); ?>">Buku</a></b>
+            </div>
+        </div>
     </li>
 
      <!-- Nav Item - Transaksi -->

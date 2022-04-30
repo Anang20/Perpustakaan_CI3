@@ -12,23 +12,24 @@ class Anggota extends CI_Controller {
     public function index()
     {
         // akan memanggil file v_anggota yg ada di dalam folder anggota
-        $isi['content'] = 'anggota/v_anggota';
-        $isi['judul'] = 'Data Daftar Anggota';
-        $isi['data_anggota'] = $this->db->get('anggota')->result();
+        $isi['content']         = 'anggota/v_anggota';
+        $isi['judul']           = 'Data Daftar Anggota';
+        $isi['data_anggota']    = $this->db->get('anggota')->result();
         $this->load->view('v_dashboard', $isi);
     }
 
     public function tambah_anggota()
     {
-        $isi['content'] = 'anggota/form_anggota';
-        $isi['judul'] = 'Form Tambah Anggota';
+        $isi['content']         = 'anggota/form_anggota';
+        $isi['judul']           = 'Form Tambah Anggota';
+        $isi['kode_anggota']    = $this->m_anggota->kode_anggota();
         $this->load->view('v_dashboard', $isi);
     }
 
     public function simpan()
     {
         $data = array(
-            'id_anggota'    => $this->input->post('id_anggota'),
+            'kode_anggota'  => $this->input->post('kode_anggota'),
             'nama_anggota'  => $this->input->post('nama_anggota'),
             'jenis_kelamin' => $this->input->post('jenis_kelamin'),
             'alamat'        => $this->input->post('alamat'),
@@ -46,7 +47,7 @@ class Anggota extends CI_Controller {
     {
         $isi['content'] = 'anggota/edit_anggota';
         $isi['judul']   = 'Form Edit Anggota';
-        // meload model anggota yg methodnya id_anggota
+        // meload model anggota yg methodnya edit
         $isi['data']    = $this->m_anggota->edit($id);
         $this->load->view('v_dashboard', $isi);
     }

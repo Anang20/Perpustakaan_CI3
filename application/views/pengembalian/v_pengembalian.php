@@ -6,12 +6,6 @@
         <?php }
     ?>
 
-    <div class="row">
-        <div class="col-md-12 mb-3">
-            <a href="<?= base_url('Pengembalian/tambah_peminjaman'); ?>" class="btn btn-sm btn-success shadow-sm"><i class="fa fa-plus"></i> Tambah Peminjaman</a>
-        </div>
-    </div>
-
     <!-- DataTables -->
     <div class="card shadow">
         <div class="card-body">

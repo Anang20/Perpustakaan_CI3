@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 29 Apr 2022 pada 03.58
+-- Waktu pembuatan: 30 Apr 2022 pada 05.46
 -- Versi server: 10.4.14-MariaDB
 -- Versi PHP: 7.4.11
 
@@ -29,30 +29,22 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `anggota` (
   `id_anggota` int(11) NOT NULL,
+  `kode_anggota` varchar(10) NOT NULL,
   `nama_anggota` varchar(255) NOT NULL,
   `jenis_kelamin` varchar(20) NOT NULL,
   `alamat` text NOT NULL,
-  `no_hp` varchar(15) NOT NULL
+  `no_hp` bigint(13) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `anggota`
 --
 
-INSERT INTO `anggota` (`id_anggota`, `nama_anggota`, `jenis_kelamin`, `alamat`, `no_hp`) VALUES
-(2, 'Muhammad Reza Nur Aditya', 'Laki-laki', 'krasak bangsri', '0895361870926'),
-(3, 'Zaninuddin', 'Laki-laki', 'Wedelan', '082xxxxxxxxxxxx'),
-(12, 'yosafat', 'Laki-laki', 'tubanan', '082xxxxxxxxxxxx'),
-(13, 'Anang Syah Amirul Haqim', 'Laki-laki', 'Kancilan', '089670068639'),
-(14, 'putri', 'Perempuan', 'jepara', '08xxxxxxxxxxx'),
-(15, 'syifa', 'Perempuan', 'semarang', '085xxxxxxxxx'),
-(16, 'Ferdi', 'Laki-laki', 'Jepara', '082xxxxxxxxxxxx'),
-(17, 'Reza Ap', 'Laki-laki', 'Bangsri', '089xxxxxxxxxxxx'),
-(19, 'Dinda', 'Perempuan', 'Jakarta', '085xxxxxxxxx'),
-(20, 'Zorojuro', 'Perempuan', 'Jogjakarta', '08xxxxxxxxxxx'),
-(21, 'Linda', 'Perempuan', 'bekasi', '082xxxxxxxxxxxx'),
-(23, 'Ariandita', 'Laki-laki', 'Bondo', '085xxxxxxxxxxx'),
-(25, 'ANANG', 'Laki-laki', 'Jepara', '089670068639');
+INSERT INTO `anggota` (`id_anggota`, `kode_anggota`, `nama_anggota`, `jenis_kelamin`, `alamat`, `no_hp`) VALUES
+(30, 'AP0001', 'Anang Syah Amirul Haqim', 'Laki-laki', 'Jepara', 89670068639),
+(31, 'AP0002', 'Zainuddin', 'Laki-laki', 'Wedelan', 8274928477),
+(32, 'AP0003', 'Muhammad Reza Nur Aditya', 'Laki-laki', 'Bangsri', 85747928849),
+(33, 'AP0004', 'Ariandita Hadi Nugroho', 'Laki-laki', 'Bondo', 89564727487);
 
 -- --------------------------------------------------------
 
@@ -62,8 +54,9 @@ INSERT INTO `anggota` (`id_anggota`, `nama_anggota`, `jenis_kelamin`, `alamat`, 
 
 CREATE TABLE `buku` (
   `id_buku` int(11) NOT NULL,
-  `pengarang` varchar(255) NOT NULL,
-  `penerbit` varchar(255) NOT NULL,
+  `kode_buku` varchar(10) NOT NULL,
+  `id_pengarang` int(11) NOT NULL,
+  `id_penerbit` int(11) NOT NULL,
   `judul_buku` varchar(50) NOT NULL,
   `tahun_terbit` int(11) NOT NULL,
   `jumlah` int(11) NOT NULL
@@ -73,14 +66,10 @@ CREATE TABLE `buku` (
 -- Dumping data untuk tabel `buku`
 --
 
-INSERT INTO `buku` (`id_buku`, `pengarang`, `penerbit`, `judul_buku`, `tahun_terbit`, `jumlah`) VALUES
-(8, 'stefano lilipaly', 'agus kotak and wajek', 'Belajar Laravel', 2017, 5),
-(9, 'Anang', 'bagus', 'Belajar React JS', 2017, 9),
-(10, 'Wahyu', 'Wahyu', 'Pemrograman Android', 2020, 3),
-(11, 'Brando', 'Brandon', 'Fundamental API', 2022, 19),
-(12, 'ahmad', 'ahmad', 'Pemrograman Javascript', 2022, 28),
-(14, 'zanek', 'ccccc', 'gggggaaaaaaaa', 2000, 2),
-(15, 'Messi', 'lionel', 'PENGETAHUAN UMUM', 2000, 1);
+INSERT INTO `buku` (`id_buku`, `kode_buku`, `id_pengarang`, `id_penerbit`, `judul_buku`, `tahun_terbit`, `jumlah`) VALUES
+(18, 'BK0001', 7, 2, 'Belajar Laravel', 2022, 9),
+(19, 'BK0002', 5, 2, 'Belajar React native', 2021, 5),
+(20, 'BK0003', 8, 4, 'Pemrograman Golang', 2020, 0);
 
 -- --------------------------------------------------------
 
@@ -139,6 +128,46 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `penerbit`
+--
+
+CREATE TABLE `penerbit` (
+  `id_penerbit` int(11) NOT NULL,
+  `nama_penerbit` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `penerbit`
+--
+
+INSERT INTO `penerbit` (`id_penerbit`, `nama_penerbit`) VALUES
+(2, 'dika firnanda'),
+(3, 'Tatang Sutarman'),
+(4, 'Sherand');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `pengarang`
+--
+
+CREATE TABLE `pengarang` (
+  `id_pengarang` int(11) NOT NULL,
+  `nama_pengarang` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `pengarang`
+--
+
+INSERT INTO `pengarang` (`id_pengarang`, `nama_pengarang`) VALUES
+(5, 'yudi huh'),
+(7, 'Mendokse'),
+(8, 'Rais');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `pengembalian`
 --
 
@@ -162,7 +191,8 @@ INSERT INTO `pengembalian` (`id_pengembalian`, `id_anggota`, `id_buku`, `tgl_pin
 (4, 16, 8, '2022-04-23', '2022-04-30', '2022-04-24'),
 (5, 20, 14, '2022-04-25', '2022-05-02', '2022-04-25'),
 (6, 3, 10, '2022-04-28', '2022-05-05', '2022-04-28'),
-(7, 14, 14, '2022-04-28', '2022-05-05', '2022-04-28');
+(7, 14, 14, '2022-04-28', '2022-05-05', '2022-04-28'),
+(8, 30, 18, '2022-04-29', '2022-05-06', '2022-04-29');
 
 --
 -- Indexes for dumped tables
@@ -193,6 +223,18 @@ ALTER TABLE `peminjaman`
   ADD PRIMARY KEY (`id_pinjam`);
 
 --
+-- Indeks untuk tabel `penerbit`
+--
+ALTER TABLE `penerbit`
+  ADD PRIMARY KEY (`id_penerbit`);
+
+--
+-- Indeks untuk tabel `pengarang`
+--
+ALTER TABLE `pengarang`
+  ADD PRIMARY KEY (`id_pengarang`);
+
+--
 -- Indeks untuk tabel `pengembalian`
 --
 ALTER TABLE `pengembalian`
@@ -206,13 +248,13 @@ ALTER TABLE `pengembalian`
 -- AUTO_INCREMENT untuk tabel `anggota`
 --
 ALTER TABLE `anggota`
-  MODIFY `id_anggota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_anggota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT untuk tabel `buku`
 --
 ALTER TABLE `buku`
-  MODIFY `id_buku` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_buku` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT untuk tabel `login`
@@ -224,13 +266,25 @@ ALTER TABLE `login`
 -- AUTO_INCREMENT untuk tabel `peminjaman`
 --
 ALTER TABLE `peminjaman`
-  MODIFY `id_pinjam` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_pinjam` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT untuk tabel `penerbit`
+--
+ALTER TABLE `penerbit`
+  MODIFY `id_penerbit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT untuk tabel `pengarang`
+--
+ALTER TABLE `pengarang`
+  MODIFY `id_pengarang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `pengembalian`
 --
 ALTER TABLE `pengembalian`
-  MODIFY `id_pengembalian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_pengembalian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

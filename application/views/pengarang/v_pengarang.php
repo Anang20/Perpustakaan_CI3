@@ -8,7 +8,7 @@
 
     <div class="row">
         <div class="col-md-12 mb-3">
-            <a href="<?= base_url('anggota/tambah_anggota'); ?>" class="btn btn-sm btn-success shadow-sm"><i class="fa fa-plus"></i> Tambah Anggota</a>
+            <a href="<?= base_url('Pengarang/tambah_pengarang'); ?>" class="btn btn-sm btn-success shadow-sm"><i class="fa fa-plus"></i> Tambah Pengarang</a>
         </div>
     </div>
 
@@ -20,28 +20,20 @@
                     <thead>
                         <tr>
                             <td>No</td>
-                            <td>Kode</td>
-                            <td>Nama Anggota</td>
-                            <td>Jenis Kelamin</td>
-                            <td>Alamat</td>
-                            <td>No. Telpon</td>
+                            <td>Nama Pengarang</td>
                             <td>Aksi</td>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
                             $no = 1;
-                            foreach ($data_anggota as $row) {?>
+                            foreach ($data_pengarang AS $row) {?>
                                 <tr>
                                     <td><?= $no++; ?></td>
-                                    <td><?= $row->kode_anggota; ?></td>
-                                    <td><?= $row->nama_anggota; ?></td>
-                                    <td><?= $row->jenis_kelamin; ?></td>
-                                    <td><?= $row->alamat; ?></td>
-                                    <td><?= $row->no_hp; ?></td>
+                                    <td><?= $row->nama_pengarang; ?></td>
                                     <td>
-                                        <a href="<?= base_url()?>anggota/edit/<?= $row->id_anggota; ?>" class="btn btn-sm btn-warning shadow-sm"><i class="fa fa-edit"></i> Edit</a>
-                                        <a href="<?= base_url()?>anggota/hapus/<?= $row->id_anggota; ?>" class="btn btn-sm btn-danger shadow-sm" onclick="return confirm('Anda Yakin Ingin Menghapus ?');"><i class="fa fa-trash"></i> Hapus</a>
+                                        <a href="<?= base_url()?>Pengarang/edit/<?= $row->id_pengarang; ?>" class="btn btn-sm btn-warning shadow-sm"><i class="fa fa-edit"></i> Edit</a>
+                                        <a href="<?= base_url()?>Pengarang/hapus/<?= $row->id_pengarang; ?>" class="btn btn-sm btn-danger shadow-sm" onclick="return confirm('Anda Yakin Ingin Menghapus ?');"><i class="fa fa-trash"></i> Hapus</a>
                                     </td>
                                 </tr>
                             <?php }
