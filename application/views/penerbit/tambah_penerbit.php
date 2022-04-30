@@ -5,7 +5,8 @@
                 <div class="row mb-3">
                     <label for="nama_penerbit" class="col-sm-2 col-form-label">Nama Penerbit</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" name="nama_penerbit" placeholder="Masukkan Nama Penerbit" required>
+                        <input type="text" class="form-control" name="nama_penerbit" placeholder="Masukkan Nama Penerbit" value="<?= set_value('nama_penerbit'); ?>" required>
+                        <?= form_error('nama_penerbit', "<small class='text-danger pl-3'>",'</small>'); ?>
                     </div>
                 </div>
                 <div class="row mb-3">

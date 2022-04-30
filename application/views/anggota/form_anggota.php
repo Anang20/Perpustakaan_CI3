@@ -10,7 +10,8 @@
                 <div class="row mb-3">
                     <label for="nama_anggota" class="col-sm-2 col-form-label">Nama Anggota</label>
                     <div class="col-sm-9">
-                    <input type="text" class="form-control" name="nama_anggota" placeholder="Nama Anggota" required>
+                    <input type="text" class="form-control" name="nama_anggota" value="<?= set_value('nama_anggota'); ?>" placeholder="Nama Anggota" required>
+                    <?= form_error('nama_anggota', "<small class='text-danger pl-3'>",'</small>'); ?>
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -32,7 +33,8 @@
                 <div class="row mb-3">
                     <label for="no_hp" class="col-sm-2 col-form-label">No. HP</label>
                     <div class="col-sm-9">
-                    <input type="number" class="form-control" name="no_hp" placeholder="No. HP" required>
+                    <input type="number" class="form-control" name="no_hp" placeholder="No. HP" value="<?= set_value('no_hp'); ?>" required>
+                    <?= form_error('no_hp', "<small class='text-danger pl-3'>",'</small>'); ?>
                     </div>
                 </div>
                 <div class="row mb-3">

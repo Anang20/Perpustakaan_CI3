@@ -1,12 +1,18 @@
 <div class="container-fluid">
     <div class="card shadow">
         <div class="card-body">
-            <form method="POST" action="<?= base_url('anggota/update'); ?>">
+            <form method="POST" action="<?= base_url('Anggota/update'); ?>">
                 <input type="hidden" class="form-control" name="id_anggota" value="<?= $data['id_anggota']; ?>" readonly>
+                <div class="row mb-3">
+                    <div class="col-sm-9">
+                    <input type="hidden" class="form-control" name="kode_anggota" value="<?= $data['kode_anggota']; ?>" required readonly>
+                    </div>
+                </div>
                 <div class="row mb-3">
                     <label for="nama_anggota" class="col-sm-2 col-form-label">Nama Anggota</label>
                     <div class="col-sm-9">
-                    <input type="text" class="form-control" value="<?= $data['nama_anggota']; ?>" name="nama_anggota" placeholder="Nama Anggota" required>
+                        <input type="text" class="form-control" value="<?= $data['nama_anggota']; set_value('nama_anggota'); ?>" name="nama_anggota" placeholder="Nama Anggota" required>
+                        <?= form_error('nama_anggota', "<small class='text-danger pl-3'>",'</small>'); ?>
                     </div>
                 </div>
                 <div class="row mb-3">

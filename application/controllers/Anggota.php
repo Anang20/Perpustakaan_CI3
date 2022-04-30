@@ -7,6 +7,7 @@ class Anggota extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('m_anggota');
+        $this->load->library('form_validation');
     }
 
     public function index()
@@ -28,18 +29,29 @@ class Anggota extends CI_Controller {
 
     public function simpan()
     {
-        $data = array(
-            'kode_anggota'  => $this->input->post('kode_anggota'),
-            'nama_anggota'  => $this->input->post('nama_anggota'),
-            'jenis_kelamin' => $this->input->post('jenis_kelamin'),
-            'alamat'        => $this->input->post('alamat'),
-            'no_hp'         => $this->input->post('no_hp')
-        );
-        $query = $this->db->insert('anggota', $data);
-        // jika variabel query benar maka akan muncul pesan data berhasil disimpan dan di arahkan ke controller anggota dan otomatis mengeksekusi method index
-        if ($query = true) {
-            $this->session->set_flashdata('info', 'Data Berhasil Di Tambahkan');
-            redirect('anggota');
+        $isi['content']         = 'anggota/form_anggota';
+        $isi['judul']           = 'Form Tambah Anggota';
+        $isi['kode_anggota']    = $this->m_anggota->kode_anggota();
+
+        // untuk vaidasi nama dan no hp unique jika nama dan no sudah ada maka akan meload halamn ulang
+        $this->form_validation->set_rules('nama_anggota', 'Nama Anggota', 'trim|required|is_unique[anggota.nama_anggota]',['is_unique' => 'Nama ini sudah ada, mohon isi nama yang lain']);
+        $this->form_validation->set_rules('no_hp', 'No Hp', 'trim|required|is_unique[anggota.no_hp]',['is_unique' => 'Nomor hp ini sudah ada, mohon isi no hp yang lain']);
+        if ($this->form_validation->run() == FALSE) {
+            $this->load->view('v_dashboard', $isi);
+        } else {
+            $data = array(
+                'kode_anggota'  => $this->input->post('kode_anggota'),
+                'nama_anggota'  => htmlspecialchars($this->input->post('nama_anggota', true)),
+                'jenis_kelamin' => $this->input->post('jenis_kelamin'),
+                'alamat'        => $this->input->post('alamat'),
+                'no_hp'         => htmlspecialchars($this->input->post('no_hp', true))
+            );
+            $query = $this->db->insert('anggota', $data);
+            // jika variabel query benar maka akan muncul pesan data berhasil disimpan dan di arahkan ke controller anggota dan otomatis mengeksekusi method index
+            if ($query = true) {
+                $this->session->set_flashdata('info', 'Data Berhasil Di Tambahkan');
+                redirect('anggota');
+            }
         }
     }
 
