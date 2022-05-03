@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 30 Apr 2022 pada 05.46
+-- Waktu pembuatan: 03 Bulan Mei 2022 pada 04.37
 -- Versi server: 10.4.14-MariaDB
 -- Versi PHP: 7.4.11
 
@@ -44,7 +44,12 @@ INSERT INTO `anggota` (`id_anggota`, `kode_anggota`, `nama_anggota`, `jenis_kela
 (30, 'AP0001', 'Anang Syah Amirul Haqim', 'Laki-laki', 'Jepara', 89670068639),
 (31, 'AP0002', 'Zainuddin', 'Laki-laki', 'Wedelan', 8274928477),
 (32, 'AP0003', 'Muhammad Reza Nur Aditya', 'Laki-laki', 'Bangsri', 85747928849),
-(33, 'AP0004', 'Ariandita Hadi Nugroho', 'Laki-laki', 'Bondo', 89564727487);
+(33, 'AP0004', 'Ariandita Hadi Nugroho', 'Laki-laki', 'Bondo', 89564727487),
+(35, 'AP0005', 'Havis ', 'Laki-laki', 'Kembang', 89277189948),
+(40, 'AP0006', 'Jarwo sutejo', 'Laki-laki', 'karanganyar', 85316637638),
+(42, 'AP0007', 'reza aditya pratama', 'Laki-laki', 'krasak', 85637167811),
+(43, 'AP0008', 'Putri', 'Perempuan', 'Kembang', 822534566),
+(44, 'AP0009', 'zahra naswa', 'Perempuan', 'bandung', 8535162733);
 
 -- --------------------------------------------------------
 
@@ -69,7 +74,10 @@ CREATE TABLE `buku` (
 INSERT INTO `buku` (`id_buku`, `kode_buku`, `id_pengarang`, `id_penerbit`, `judul_buku`, `tahun_terbit`, `jumlah`) VALUES
 (18, 'BK0001', 7, 2, 'Belajar Laravel', 2022, 9),
 (19, 'BK0002', 5, 2, 'Belajar React native', 2021, 5),
-(20, 'BK0003', 8, 4, 'Pemrograman Golang', 2020, 0);
+(20, 'BK0003', 8, 4, 'Pemrograman java', 2020, 3),
+(21, 'BK0004', 9, 5, 'Harry Poter', 2010, 20),
+(22, 'BK0005', 9, 6, 'Misteri Balckhole', 2020, 7),
+(23, 'BK0006', 9, 2, 'Belajar MERN stack', 2022, 4);
 
 -- --------------------------------------------------------
 
@@ -90,7 +98,8 @@ CREATE TABLE `login` (
 --
 
 INSERT INTO `login` (`id`, `nama`, `username`, `password`, `level`) VALUES
-(1, 'admin', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'administrator');
+(1, 'admin', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'administrator'),
+(3, 'petugas', 'petugas', '570c396b3fc856eceb8aa7357f32af1a', 'petugas');
 
 -- --------------------------------------------------------
 
@@ -111,11 +120,8 @@ CREATE TABLE `peminjaman` (
 --
 
 INSERT INTO `peminjaman` (`id_pinjam`, `id_anggota`, `id_buku`, `tgl_pinjam`, `tgl_kembali`) VALUES
-(1, 13, 9, '2022-04-12', '2022-04-19'),
-(5, 15, 11, '2022-04-22', '2022-04-29'),
-(9, 2, 12, '2022-04-23', '2022-04-30'),
-(10, 18, 13, '2022-04-23', '2022-04-30'),
-(13, 23, 10, '2022-04-28', '2022-05-05');
+(16, 32, 20, '2022-04-30', '2022-05-07'),
+(18, 30, 23, '2022-04-30', '2022-05-07');
 
 --
 -- Trigger `peminjaman`
@@ -143,7 +149,9 @@ CREATE TABLE `penerbit` (
 INSERT INTO `penerbit` (`id_penerbit`, `nama_penerbit`) VALUES
 (2, 'dika firnanda'),
 (3, 'Tatang Sutarman'),
-(4, 'Sherand');
+(4, 'Sherand'),
+(5, 'Peter'),
+(6, 'yudha');
 
 -- --------------------------------------------------------
 
@@ -163,7 +171,8 @@ CREATE TABLE `pengarang` (
 INSERT INTO `pengarang` (`id_pengarang`, `nama_pengarang`) VALUES
 (5, 'yudi huh'),
 (7, 'Mendokse'),
-(8, 'Rais');
+(8, 'Rais'),
+(9, 'John');
 
 -- --------------------------------------------------------
 
@@ -185,14 +194,8 @@ CREATE TABLE `pengembalian` (
 --
 
 INSERT INTO `pengembalian` (`id_pengembalian`, `id_anggota`, `id_buku`, `tgl_pinjam`, `tgl_kembali`, `tgl_kembalikan`) VALUES
-(1, 14, 10, '2022-04-22', '2022-04-29', '2022-04-23'),
-(2, 17, 12, '2022-04-23', '2022-04-30', '2022-04-23'),
-(3, 16, 10, '2022-04-23', '2022-04-30', '2022-04-23'),
-(4, 16, 8, '2022-04-23', '2022-04-30', '2022-04-24'),
-(5, 20, 14, '2022-04-25', '2022-05-02', '2022-04-25'),
-(6, 3, 10, '2022-04-28', '2022-05-05', '2022-04-28'),
-(7, 14, 14, '2022-04-28', '2022-05-05', '2022-04-28'),
-(8, 30, 18, '2022-04-29', '2022-05-06', '2022-04-29');
+(8, 30, 18, '2022-04-29', '2022-05-06', '2022-04-29'),
+(9, 35, 22, '2022-04-30', '2022-05-07', '2022-04-30');
 
 --
 -- Indexes for dumped tables
@@ -248,43 +251,43 @@ ALTER TABLE `pengembalian`
 -- AUTO_INCREMENT untuk tabel `anggota`
 --
 ALTER TABLE `anggota`
-  MODIFY `id_anggota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id_anggota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT untuk tabel `buku`
 --
 ALTER TABLE `buku`
-  MODIFY `id_buku` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_buku` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT untuk tabel `login`
 --
 ALTER TABLE `login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `peminjaman`
 --
 ALTER TABLE `peminjaman`
-  MODIFY `id_pinjam` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_pinjam` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT untuk tabel `penerbit`
 --
 ALTER TABLE `penerbit`
-  MODIFY `id_penerbit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_penerbit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `pengarang`
 --
 ALTER TABLE `pengarang`
-  MODIFY `id_pengarang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_pengarang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT untuk tabel `pengembalian`
 --
 ALTER TABLE `pengembalian`
-  MODIFY `id_pengembalian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_pengembalian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
