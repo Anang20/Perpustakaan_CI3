@@ -11,7 +11,8 @@
                 <div class="row mb-3">
                     <label for="judul_buku" class="col-sm-2 col-form-label">Judul Buku</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" name="judul_buku" placeholder="Masukkan Judul buku" required>
+                        <input type="text" class="form-control" name="judul_buku" placeholder="Masukkan Judul buku" value="<?= set_value('judul_buku'); ?>" required>
+                        <?= form_error('judul_buku', "<small class='text-danger pl-3'>",'</small>'); ?>
                     </div>
                 </div>
 
