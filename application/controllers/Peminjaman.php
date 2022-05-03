@@ -21,12 +21,31 @@ class Peminjaman extends CI_Controller {
     {
         $isi['content'] = 'peminjaman/form_peminjaman';
         $isi['judul'] = 'Tambah Peminjaman';
-        // mengambil data dari tabel anggota untuk di relasi ke tabel peminjaman
-        $isi['peminjam'] = $this->db->get('anggota')->result();
-        // mengambil data dari tabel buku untuk di relasi ke tabel peminjaman
-        $isi['buku'] = $this->db->get('buku')->result(); 
+        $id_anggota = $this->input->get("id_anggota");
+        $id_buku = $this->input->get("id_buku");
+        if($this->input->get()) {
+            $temp_anggota = $this->db->query("SELECT * FROM anggota WHERE id_anggota="."'".$id_anggota."'")->row_array();
+            $temp_buku = $this->db->query("SELECT * FROM buku WHERE id_buku="."'".$id_buku."'")->row_array();
+            if (!empty($temp_anggota["id_anggota"])) {
+                if ($this->input->get("id_anggota") == $temp_anggota["id_anggota"]) {
+                    if (!empty($temp_buku)) {
+                        if ($this->input->get("id_buku") == $temp_buku["id_buku"]) {
+                            $isi["nama_anggota"] = $temp_anggota["nama_anggota"];
+                            $isi["judul_buku"] = $temp_buku["judul_buku"];
+                            $isi["id_anggota"] = $temp_anggota["id_anggota"];
+                            $isi["id_buku"] = $temp_buku["id_buku"];
+                        }
+                    }else{
+                        echo "ID Buku Tidak Ditemukan";
+                    }
+                }
+            }else{
+                echo "ID Anggota Tidak Ditemukan";
+            }
+        }
         $this->load->view('v_dashboard', $isi);
     }
+
     
     public function simpan()
     {

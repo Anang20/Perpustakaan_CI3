@@ -9,46 +9,67 @@
 <div class="container-fluid">
     <div class="card shadow">
         <div class="card-body">
+            <form method="GET" action="<?= base_url('Peminjaman/tambah_peminjaman'); ?>">
+                <div class="row mb-4">
+                    <label class="col-sm-2 col-form-label">ID Peminjam</label>
+                    <div class="col-sm-4">
+                        <input type="number" name="id_anggota" class="form-control" required>
+                    </div>
+                    <label class="col-sm-1 col-form-label">ID Buku</label>
+                    <div class="col-sm-4">
+                        <input type="number" name="id_buku" id="" class="form-control" required>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="" class="col-sm-2 col-form-label"></label>
+                    <div class="col-sm-5">
+                        <button type="submit" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fas fa-search pr-2"></i>Cari Data</button>
+                    </div>
+                </div>
+            </form>
+            <hr>
             <form method="POST" action="<?= base_url('Peminjaman/simpan'); ?>">
-                <div class="row mb-3">
-                    <label for="jenis_kelamin" class="col-sm-2 col-form-label">Peminjam</label>
-                    <div class="col-sm-9">
-                        <select name="id_anggota" id="anggota" class="form-control" required>
-                            <option value=""> - Pilih Peminjam - </option>
-                            <?php
-                                foreach ($peminjam AS $key) {?>
-                                    <option value="<?= $key->id_anggota; ?>"><?= $key->nama_anggota ?></option>
-                                <?php }
-                            ?>
-                        </select>
-                    </div>
+
+            <!-- Menampilkan Nama dan Judul Buku -->
+                <div class="row mb-4">
+                    <label class="col-sm-2 col-form-label">Nama Peminjam :</label>
+                    <?php if(!empty($nama_anggota)) : ?>
+                        <label class="col-sm-4 col-form-label"><?= $nama_anggota ?></label>
+                    <?php else: ?>
+                        <label class="col-sm-4 col-form-label">Nama</label>
+                    <?php endif ?>
+                    <label class="col-sm-1 col-form-label">Judul :</label>
+                    <?php if(!empty($judul_buku)) : ?>
+                        <label class="col-sm-4 col-form-label"><?= $judul_buku ?></label>
+                    <?php else: ?>
+                        <label class="col-sm-4 col-form-label">Judul Buku</label>
+                    <?php endif ?>
                 </div>
-                <div class="row mb-3">
-                    <label for="jenis_kelamin" class="col-sm-2 col-form-label">Buku</label>
-                    <div class="col-sm-9">
-                        <select name="id_buku" id="id_buku" class="form-control" required>
-                            <option value=""> - Pilih Buku - </option>
-                            <?php
-                                foreach ($buku AS $key) {?>
-                                    <option value="<?= $key->id_buku; ?>"><?= $key->judul_buku ?></option>
-                                <?php }
-                            ?>
-                        </select>
-                    </div>
-                </div>
-              
+
+            <!-- Form Menmabahkan Data Pinjaman -->
+
                 <div class="row mb-3">
                     <label for="nama_penerbit" class="col-sm-2 col-form-label">Tanggal Peminjaman</label>
-                    <div class="col-sm-9">
+                    <div class="col-sm-4">
                         <input type="date" class="form-control" value="<?= $tgl_pinjam; ?>" name="tgl_pinjam" readonly required>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="jumlah" class="col-sm-2 col-form-label">Tanggal Pengembalian</label>
-                    <div class="col-sm-9">
+                    <div class="col-sm-4">
                         <input type="date" class="form-control" name="tgl_kembali" value="<?= $tgl_kembali; ?>" readonly required>
                     </div>
                 </div>
+                <?php if(!empty($id_anggota)) : ?>
+                    <input type="hidden" name="id_anggota" value="<?= $id_anggota ?>">
+                <?php else : ?>
+                    <input type="hidden" name="id_anggota" value="ID Anggota">
+                <?php endif ?>
+                <?php if(!empty($id_anggota)) : ?>
+                    <input type="hidden" name="id_buku" value="<?= $id_buku ?>">
+                <?php else : ?>
+                    <input type="hidden" name="id_anggota" value="ID Buku">
+                <?php endif ?>
                 <div class="row mb-3">
                     <label for="" class="col-sm-2 col-form-label"></label>
                     <div class="col-sm-5">
