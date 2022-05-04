@@ -34,8 +34,8 @@
 
     <!-- Nav Item - Data Anggota -->
     <li class="nav-item active">
-        <!-- akan di arahkan ke controller anggota -->
-        <a class="nav-link" href="<?= base_url('anggota'); ?>">
+        <!-- akan di arahkan ke controller cetak -->
+        <a class="nav-link" href="<?= base_url('cetak'); ?>">
             <i class="fas fa-id-card"></i>
             <span>Cetak Kartu Anggota</span>
         </a>
