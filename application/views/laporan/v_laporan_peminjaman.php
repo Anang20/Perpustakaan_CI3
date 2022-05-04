@@ -60,6 +60,7 @@
                         <thead>
                             <tr>
                                 <td>No</td>
+                                <td>Kode Peminjaman</td>
                                 <td>Peminjam</td>
                                 <td>Buku</td>
                                 <td>Tanggal Pinjam</td>
@@ -72,6 +73,7 @@
                                 foreach ($data AS $row) {?>
                                     <tr>
                                         <td><?= $no++; ?></td>
+                                        <td><?= $row->kode_peminjaman; ?></td>
                                         <td><?= $row->nama_anggota; ?></td>
                                         <td><?= $row->judul_buku; ?></td>
                                         <td><?= tgl_indo_medium($row->tgl_pinjam); ?></td>

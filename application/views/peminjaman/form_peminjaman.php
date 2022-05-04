@@ -49,6 +49,11 @@
             <!-- Form Menmabahkan Data Pinjaman -->
 
                 <div class="row mb-3">
+                    <div class="col-sm-9">
+                    <input type="hidden" class="form-control" name="kode_peminjaman" value="<?= $kode_peminjaman; ?>" required readonly>
+                    </div>
+                </div>
+                <div class="row mb-3">
                     <label for="nama_penerbit" class="col-sm-2 col-form-label">Tanggal Peminjaman</label>
                     <div class="col-sm-4">
                         <input type="date" class="form-control" value="<?= $tgl_pinjam; ?>" name="tgl_pinjam" readonly required>

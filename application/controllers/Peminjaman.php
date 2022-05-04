@@ -21,6 +21,7 @@ class Peminjaman extends CI_Controller {
     {
         $isi['content'] = 'peminjaman/form_peminjaman';
         $isi['judul'] = 'Tambah Peminjaman';
+        $isi['kode_peminjaman']    = $this->m_peminjaman->kode_peminjaman();
         $id_anggota = $this->input->get("id_anggota");
         $id_buku = $this->input->get("id_buku");
         if($this->input->get()) {
@@ -50,10 +51,11 @@ class Peminjaman extends CI_Controller {
     public function simpan()
     {
         $data = array(
-            'id_anggota' => $this->input->post('id_anggota'),
-            'id_buku'    => $this->input->post('id_buku'),
-            'tgl_pinjam' => $this->input->post('tgl_pinjam'),
-            'tgl_kembali' => $this->input->post('tgl_kembali')
+            'kode_peminjaman' => $this->input->post('kode_peminjaman'),
+            'id_anggota'      => $this->input->post('id_anggota'),
+            'id_buku'         => $this->input->post('id_buku'),
+            'tgl_pinjam'      => $this->input->post('tgl_pinjam'),
+            'tgl_kembali'     => $this->input->post('tgl_kembali')
         );
 
         $query = $this->db->insert('peminjaman', $data);

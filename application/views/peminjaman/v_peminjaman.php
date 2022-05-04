@@ -20,6 +20,7 @@
                     <thead>
                         <tr>
                             <td>No</td>
+                            <td>kode</td>
                             <td>Peminjam</td>
                             <td>Buku</td>
                             <td>Tanggal Pinjam</td>
@@ -38,6 +39,7 @@
                                 ?>
                                 <tr>
                                     <td><?= $no++; ?></td>
+                                    <td><?= $row->kode_peminjaman; ?></td>
                                     <td><?= $row->nama_anggota ?></td>
                                     <td><?= $row->judul_buku ?></td>
                                     <td><?= $row->tgl_pinjam ?></td>

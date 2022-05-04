@@ -76,6 +76,7 @@ $tabel_header.= '</table> <br/><br/>';
 $tabel_body = '<table border="1" width="650px">';
     $tabel_body.='<tr style="background-color: orange">
                 <td height="30" style="text-align:center; font-weight:bold; font-family:sans-serif; font-size:14px;">No</td>
+                <td style="text-align:center; font-weight:bold; font-family:sans-serif; font-size:14px;">Kode Peminjaman</td>
                 <td style="text-align:center; font-weight:bold; font-family:sans-serif; font-size:14px;">Peminjam</td>
                 <td style="text-align:center; font-weight:bold; font-family:sans-serif; font-size:14px;">Buku</td>
                 <td style="text-align:center; font-weight:bold; font-family:sans-serif; font-size:14px;">Tanggal Pinjam</td>
@@ -85,6 +86,7 @@ $tabel_body = '<table border="1" width="650px">';
             foreach ($data AS $row) {
                 $tabel_body.='<tr>
                                 <td style="text-align:center; font-family:sans-serif; font-size:12px;">'.$no++.'</td>
+                                <td style="text-align:center; font-family:sans-serif; font-size:12px;">'.$row->kode_peminjaman.'</td>
                                 <td style="text-align:center; font-family:sans-serif; font-size:12px;">'.$row->nama_anggota.'</td>
                                 <td style="text-align:center; font-family:sans-serif; font-size:12px;">'.$row->judul_buku.'</td>
                                 <td style="text-align:center; font-family:sans-serif; font-size:12px;">'.tgl_indo_medium($row->tgl_pinjam).'</td>
