@@ -5,6 +5,7 @@ Login
 username : admin
 ********
 password : admin
+********
 
 ###################
 What is CodeIgniter
