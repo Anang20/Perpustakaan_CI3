@@ -1,20 +1,9 @@
 ###########
-Login Level
+Login
 ###########
-
-******
-Administrator
-******
 username : admin
 ********
 password : admin
-
-*******
-Petugas
-*******
-username : petugas
-*********
-password : petugas123
 
 ###################
 What is CodeIgniter
