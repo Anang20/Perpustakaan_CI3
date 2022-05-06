@@ -23,7 +23,7 @@
                         <hr class="mt-1">
                         <div class="row">
                             <div class="col-3">
-                                <img src="<?= base_url('assets/'); ?>img/about-img.jpg" class="rounded mx-auto d-block m-2" alt="logo" style="width: 100%;">
+                                <img src="<?= base_url('assets/'); ?>img/foto/<?= $data['foto'] ?>" class="rounded mx-auto d-block m-2" alt="logo" style="width: 100%;">
                             </div>
                             <div class="col-9 mt-1">
                                 <!-- Nama Anggota -->

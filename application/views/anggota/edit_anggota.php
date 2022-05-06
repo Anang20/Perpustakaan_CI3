@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="card shadow">
         <div class="card-body">
-            <form method="POST" action="<?= base_url('Anggota/update'); ?>">
+            <?= form_open_multipart('Anggota/update'); ?>
                 <input type="hidden" class="form-control" name="id_anggota" value="<?= $data['id_anggota']; ?>" readonly>
                 <div class="row mb-3">
                     <div class="col-sm-9">
@@ -44,13 +44,20 @@
                     </div>
                 </div>
                 <div class="row mb-3">
+                    <label for="nama_anggota" class="col-sm-2 col-form-label">Upload Foto</label>
+                    <div class="col-sm-9">
+                        <img src="<?= base_url()?>assets/img/foto/<?= $data['foto']; ?>" alt="" name="foto" style="margin-bottom: 5px;" width="150">
+                        <input type="file" class="form-control" value="<?= $data['foto']; ?>" name="foto" required>
+                    </div>
+                </div>
+                <div class="row mb-3">
                     <label for="" class="col-sm-2 col-form-label"></label>
                     <div class="col-sm-5">
                         <a href="<?= base_url('anggota') ?>" class="btn btn-warning mr-3"><i class="fas fa-arrow-circle-left pr-2"></i>Cancel</a>
                         <button type="submit" class="btn btn-success"><i class="fas fa-save pr-2"></i>Update</button>
                     </div>
                 </div>
-            </form>
+            <?= form_close(); ?>
         </div>
     </div>
 </div>

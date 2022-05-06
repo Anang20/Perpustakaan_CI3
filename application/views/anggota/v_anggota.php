@@ -21,6 +21,7 @@
                         <tr>
                             <td>No</td>
                             <td>Kode</td>
+                            <td>Foto</td>
                             <td>Nama Anggota</td>
                             <td>Jenis Kelamin</td>
                             <td>Alamat</td>
@@ -35,6 +36,9 @@
                                 <tr>
                                     <td><?= $no++; ?></td>
                                     <td><?= $row->kode_anggota; ?></td>
+                                    <td>
+                                        <img src="<?= base_url('assets/');?>img/foto/<?= $row->foto; ?>" alt="" width="90" height="100">
+                                    </td>
                                     <td><?= $row->nama_anggota; ?></td>
                                     <td><?= $row->jenis_kelamin; ?></td>
                                     <td><?= $row->alamat; ?></td>
