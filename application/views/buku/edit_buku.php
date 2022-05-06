@@ -6,7 +6,7 @@
                 
                 <div class="row mb-3">
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" value="<?= $data['kode_buku']; ?>" name="kode_buku" placeholder="Judul" required readonly>
+                        <input type="hidden" class="form-control" value="<?= $data['kode_buku']; ?>" name="kode_buku" placeholder="Judul" required readonly>
                     </div>
                 </div>
 
