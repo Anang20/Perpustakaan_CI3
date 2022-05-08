@@ -11,13 +11,13 @@
         <div class="card-body">
             <form method="GET" action="<?= base_url('Peminjaman/tambah_peminjaman'); ?>">
                 <div class="row mb-4">
-                    <label class="col-sm-2 col-form-label">ID Peminjam</label>
+                    <label class="col-sm-2 col-form-label">Kode Anggota</label>
                     <div class="col-sm-4">
-                        <input type="number" name="id_anggota" class="form-control" required>
+                        <input type="text" name="kode_anggota" class="form-control" required>
                     </div>
-                    <label class="col-sm-1 col-form-label">ID Buku</label>
+                    <label class="col-sm-2 col-form-label">Kode Buku</label>
                     <div class="col-sm-4">
-                        <input type="number" name="id_buku" id="" class="form-control" required>
+                        <input type="text" name="kode_buku" id="id_buku" class="form-control" required>
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -68,12 +68,12 @@
                 <?php if(!empty($id_anggota)) : ?>
                     <input type="hidden" name="id_anggota" value="<?= $id_anggota ?>">
                 <?php else : ?>
-                    <input type="hidden" name="id_anggota" value="ID Anggota">
+                    <input type="hidden" name="id_anggota" value="Kode Anggota" required>
                 <?php endif ?>
-                <?php if(!empty($id_anggota)) : ?>
+                <?php if(!empty($id_buku)) : ?>
                     <input type="hidden" name="id_buku" value="<?= $id_buku ?>">
                 <?php else : ?>
-                    <input type="hidden" name="id_anggota" value="ID Buku">
+                    <input type="hidden" name="id_buku" value="Kode Buku" required>
                 <?php endif ?>
                 <div class="row mb-3">
                     <label for="" class="col-sm-2 col-form-label"></label>
@@ -108,24 +108,5 @@
         });
     });
 
-    $(document).ready(function () {
-        // untuk menampilkan select option pencarian peminjam
-        $("#anggota").select2({
-            theme: 'bootstrap4',
-            placeholder: "- Pilih Peminjam -"
-        });
-        $(window).resize(function() {
-            $((".select2-container")).css("width", "100%");
-        });
-
-        
-        $("#id_buku").select2({
-            theme: 'bootstrap4',
-            placeholder: "- Pilih Buku -"
-        });
-        $(window).resize(function() {
-            $((".select2-container")).css("width", "100%");
-        });
-    });
 
 </script>

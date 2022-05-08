@@ -22,26 +22,28 @@ class Peminjaman extends CI_Controller {
         $isi['content'] = 'peminjaman/form_peminjaman';
         $isi['judul'] = 'Tambah Peminjaman';
         $isi['kode_peminjaman']    = $this->m_peminjaman->kode_peminjaman();
-        $id_anggota = $this->input->get("id_anggota");
-        $id_buku = $this->input->get("id_buku");
+        $kode_anggota = $this->input->get("kode_anggota");
+        $kode_buku = $this->input->get("kode_buku");
         if($this->input->get()) {
-            $temp_anggota = $this->db->query("SELECT * FROM anggota WHERE id_anggota="."'".$id_anggota."'")->row_array();
-            $temp_buku = $this->db->query("SELECT * FROM buku WHERE id_buku="."'".$id_buku."'")->row_array();
-            if (!empty($temp_anggota["id_anggota"])) {
-                if ($this->input->get("id_anggota") == $temp_anggota["id_anggota"]) {
+            $temp_anggota = $this->db->query("SELECT * FROM anggota WHERE kode_anggota="."'".$kode_anggota."'")->row_array();
+            $temp_buku = $this->db->query("SELECT * FROM buku WHERE kode_buku="."'".$kode_buku."'")->row_array();
+            if (!empty($temp_anggota["kode_anggota"])) {
+                if ($this->input->get("kode_anggota") == $temp_anggota["kode_anggota"]) {
                     if (!empty($temp_buku)) {
-                        if ($this->input->get("id_buku") == $temp_buku["id_buku"]) {
+                        if ($this->input->get("kode_buku") == $temp_buku["kode_buku"]) {
+                            $isi['id_anggota']  = $temp_anggota['id_anggota'];
                             $isi["nama_anggota"] = $temp_anggota["nama_anggota"];
+                            $isi['id_buku']     = $temp_buku['id_buku'];
                             $isi["judul_buku"] = $temp_buku["judul_buku"];
-                            $isi["id_anggota"] = $temp_anggota["id_anggota"];
-                            $isi["id_buku"] = $temp_buku["id_buku"];
+                            $isi["kode_anggota"] = $temp_anggota["kode_anggota"];
+                            $isi["kode_buku"] = $temp_buku["kode_buku"];
                         }
                     }else{
-                        echo "ID Buku Tidak Ditemukan";
+                        echo "Kode Buku Tidak Ditemukan";
                     }
                 }
             }else{
-                echo "ID Anggota Tidak Ditemukan";
+                echo "Kode Anggota Tidak Ditemukan";
             }
         }
         $this->load->view('v_dashboard', $isi);
