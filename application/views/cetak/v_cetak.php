@@ -40,7 +40,8 @@
                                     <td><?= $row->alamat; ?></td>
                                     <td><?= $row->no_hp; ?></td>
                                     <td>
-                                        <a href="<?= base_url()?>cetak/detail/<?= $row->id_anggota; ?>" class="btn btn-sm btn-primary shadow-sm"><i class="fas fa-id-card"></i> Info Kartu</a>
+                                        <a href="<?= base_url()?>cetak/detail/<?= $row->id_anggota; ?>" class="btn btn-sm btn-primary shadow-sm"><i class="fas fa-id-card"></i> Detail</a>
+                                        <a href="<?= base_url()?>cetak/download/<?= $row->id_anggota; ?>" class="btn btn-sm btn-primary shadow-sm"><i class="fas fa-id-card"></i> Download</a>
                                     </td>
                                 </tr>
                             <?php }

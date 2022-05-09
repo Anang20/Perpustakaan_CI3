@@ -25,4 +25,12 @@ class Cetak extends CI_Controller {
         $isi["data"]            = $this->m_anggota->edit($id);
         $this->load->view("v_dashboard", $isi);
     }
+
+    public function download($id)
+    {
+        $isi["content"]         = 'cetak/download';
+        $isi["judul"]           = 'Kartu Anggota E-Perpus';
+        $isi["data"]            = $this->m_anggota->edit($id);
+        $this->load->view("cetak/download", $isi);
+    }
 }
