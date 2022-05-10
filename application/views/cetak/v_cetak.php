@@ -41,7 +41,7 @@
                                     <td><?= $row->no_hp; ?></td>
                                     <td>
                                         <a href="<?= base_url()?>cetak/detail/<?= $row->id_anggota; ?>" class="btn btn-sm btn-primary shadow-sm"><i class="fas fa-id-card"></i> Detail</a>
-                                        <a href="<?= base_url()?>cetak/download/<?= $row->id_anggota; ?>" class="btn btn-sm btn-primary shadow-sm"><i class="fas fa-id-card"></i> Download</a>
+                                        <a href="<?= base_url()?>cetak/download/<?= $row->id_anggota; ?>" target="_blank" class="btn btn-sm btn-success shadow-sm"><i class="fas fa-print"></i> Cetak</a>
                                     </td>
                                 </tr>
                             <?php }
