@@ -2,24 +2,6 @@
 
 class M_buku extends CI_Model {
 
-    public function kode_buku()
-    {
-        $this->db->select('RIGHT(buku.kode_buku,4) as kode', false);
-        $this->db->order_by('kode_buku', 'DESC');
-        $this->db->limit(1);
-        $query = $this->db->get('buku');
-        if ($query->num_rows()<>0) {
-            $data = $query->row();
-            $kode = intval($data->kode)+1;
-        } else {
-            $kode = 1;
-        }
-
-        $kodemax = str_pad($kode,4,"0",STR_PAD_LEFT);
-        $kode_buku = "BK".$kodemax;
-        return $kode_buku;
-    }
-
     public function ambil_data_buku()
     {
         $this->db->select('*');

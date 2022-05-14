@@ -53,7 +53,6 @@
                                             <input type="password" name="password" class="form-control form-control-user" placeholder="Masukkan Password..." required>
                                         </div>
                                        <button type="submit" class="btn btn-success btn-user btn-block">Login</button>
-                                       <small style="display:flex; justify-content:center; text-align: center; margin-top: 8px;"><a href="<?= base_url('Beranda'); ?>" class="text-dark" style="text-decoration: none;"><i>Ke Beranda</i></a></small>
                                     </form>
                                 </div>
                             </div>

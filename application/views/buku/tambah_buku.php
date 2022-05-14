@@ -3,8 +3,10 @@
         <div class="card-body">
             <form method="POST" action="<?= base_url('Buku/simpan'); ?>">
                 <div class="row mb-3">
+                    <label for="kode_buku" class="col-sm-2 col-form-label">Kode Buku</label>
                     <div class="col-sm-9">
-                        <input type="hidden" class="form-control" name="kode_buku" value="<?= $kode_buku; ?>" required readonly>
+                        <input type="text" class="form-control" name="kode_buku" placeholder="Masukkan Kode Buku" value="<?= set_value('kode_buku'); ?>" required>
+                        <?= form_error('kode_buku', "<small class='text-danger pl-3'>",'</small>'); ?>
                     </div>
                 </div>
 

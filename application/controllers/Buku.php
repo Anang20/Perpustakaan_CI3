@@ -21,8 +21,6 @@ class Buku extends CI_Controller {
     {
         $isi['content'] = 'buku/tambah_buku';
         $isi['judul'] = 'Form Tambah Buku';
-        // untuk membuat kode buku otomatis yang dilakukn di dalam m_buku di function kode_buku
-        $isi['kode_buku'] = $this->m_buku->kode_buku();
         // untuk mengambil data dari tabel pengarang
         $isi['pengarang'] = $this->db->get('pengarang')->result();
         // untuk mengambil data dari tabel penerbit
@@ -47,20 +45,19 @@ class Buku extends CI_Controller {
     {
         $isi['content'] = 'buku/tambah_buku';
         $isi['judul'] = 'Form Tambah Buku';
-        // untuk membuat kode buku otomatis yang dilakukn di dalam m_buku di function kode_buku
-        $isi['kode_buku'] = $this->m_buku->kode_buku();
         // untuk mengambil data dari tabel pengarang
         $isi['pengarang'] = $this->db->get('pengarang')->result();
         // untuk mengambil data dari tabel penerbit
         $isi['penerbit'] = $this->db->get('penerbit')->result();
 
         // untuk vaidasi nama dan no hp unique jika nama dan no sudah ada maka akan meload halamn ulang
-        $this->form_validation->set_rules('judul_buku', 'Judul Buku', 'trim|required|is_unique[buku.judul_buku]',['is_unique' => 'Buku ini sudah ada, mohon isi buku yang lain']);
+        $this->form_validation->set_rules('kode_buku', 'Kode Buku', 'trim|required|is_unique[buku.kode_buku]',['is_unique' => 'Kode Buku ini sudah ada, mohon isi Kode yang lain!']);
+        $this->form_validation->set_rules('judul_buku', 'Judul Buku', 'trim|required|is_unique[buku.judul_buku]',['is_unique' => 'Buku ini sudah ada, mohon isi buku yang lain!']);
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('v_dashboard', $isi);
         } else {
             $data = array(
-                'kode_buku'         => $this->input->post('kode_buku'),
+                'kode_buku'         => htmlspecialchars($this->input->post('kode_buku', true)),
                 'id_pengarang'      => $this->input->post('id_pengarang'),
                 'id_penerbit'       => $this->input->post('id_penerbit'),
                 'judul_buku'        => htmlspecialchars($this->input->post('judul_buku', true)),
