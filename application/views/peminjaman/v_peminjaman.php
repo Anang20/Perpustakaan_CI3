@@ -8,7 +8,7 @@
 
     <div class="row">
         <div class="col-md-12 mb-3">
-            <a href="<?= base_url('Peminjaman/tambah_peminjaman'); ?>" class="btn btn-sm btn-success shadow-sm"><i class="fa fa-plus"></i> Tambah Peminjaman</a>
+            <a href="<?= base_url('peminjaman/get_kode_anggota'); ?>" class="btn btn-sm btn-success shadow-sm"><i class="fa fa-plus"></i> Tambah Peminjaman</a>
         </div>
     </div>
 

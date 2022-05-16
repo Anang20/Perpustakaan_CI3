@@ -9,17 +9,30 @@
 <div class="container-fluid">
     <div class="card shadow">
         <div class="card-body">
-            <form method="get" action="<?= base_url('peminjaman/get_kode_anggota'); ?>">
+            <div class="row mb-4">
+                <label class="col-sm-2 col-form-label">Kode Peminjam :</label>
+                <?php if(!empty($kode_anggota)) : ?>
+                    <label class="col-sm-4 col-form-label"><?= $kode_anggota ?></label>
+                <?php else: ?>
+                    <label class="col-sm-4 col-form-label">Kode Anggota</label>
+                <?php endif ?>
+            </div>
+            <hr>
+            <form action="<?= base_url("peminjaman/get_buku_satu") ?>" method="POST">
                 <div class="row mb-4">
-                    <label class="col-sm-2 col-form-label">Kode Anggota</label>
+                    <label class="col-sm-2 col-form-label">Kode Buku</label>
+                    <?php if(!empty($kode_anggota)) : ?>
+                        <input type="hidden" name="kode_anggota" value="<?= $kode_anggota ?>">
+                    <?php endif ?>
                     <div class="col-sm-4">
-                        <input type="text" name="kode_anggota" class="form-control" required>
+                        <input type="text" name="kode_buku" class="form-control" required>
                     </div>
-                    <div class="col-sm-4">
-                        <button type="submit" class="btn btn-primary">Cari Kode Anggota</button>
+                    <div class="col-sm-2">
+                        <button type="submit" class="btn btn-primary">Cari Kode Buku</button>
                     </div>
                 </div>
             </form>
+            <label class="col-form-label">Kode Buku ( Batas 5 Buku Peminjaman )</label> <br>
         </div>
     </div>
 </div>

@@ -17,39 +17,162 @@ class Peminjaman extends CI_Controller {
         $this->load->view('v_dashboard', $isi);
     }
 
-    public function tambah_peminjaman()
+    // public function tambah_peminjaman()
+    // {
+    //     $isi['content'] = 'peminjaman/form_peminjaman';
+    //     $isi['judul'] = 'Tambah Peminjaman';
+    //     $isi['kode_peminjaman']    = $this->m_peminjaman->kode_peminjaman();
+    //     $kode_anggota = $this->input->get("kode_anggota");
+    //     if($this->input->get()) {
+    //         $temp_anggota = $this->db->query("SELECT * FROM anggota WHERE kode_anggota="."'".$kode_anggota."'")->row_array();
+    //         if (!empty($temp_anggota["kode_anggota"])) {
+    //             if ($this->input->get("kode_anggota") == $temp_anggota["kode_anggota"]) {
+    //                 $isi["kode_anggota"] = $temp_anggota["kode_anggota"];
+    //                 $isi["content"] = "peminjaman/buku_kode";
+    //                 if($this->input->post()) {
+    //                     var_dump($this->input->post());
+    //                 }else{
+    //                     echo "Gagal";
+    //                 }
+    //             }
+    //         }else{
+    //             echo "Kode Anggota Tidak Ditemukan";
+    //         }
+    //     }
+    //     $this->load->view('v_dashboard', $isi);
+    // }
+
+    public function get_kode_anggota()
     {
-        $isi['content'] = 'peminjaman/form_peminjaman';
-        $isi['judul'] = 'Tambah Peminjaman';
-        $isi['kode_peminjaman']    = $this->m_peminjaman->kode_peminjaman();
-        $kode_anggota = $this->input->get("kode_anggota");
-        $kode_buku = $this->input->get("kode_buku");
-        if($this->input->get()) {
-            $temp_anggota = $this->db->query("SELECT * FROM anggota WHERE kode_anggota="."'".$kode_anggota."'")->row_array();
-            $temp_buku = $this->db->query("SELECT * FROM buku WHERE kode_buku="."'".$kode_buku."'")->row_array();
-            if (!empty($temp_anggota["kode_anggota"])) {
-                if ($this->input->get("kode_anggota") == $temp_anggota["kode_anggota"]) {
-                    if (!empty($temp_buku)) {
-                        if ($this->input->get("kode_buku") == $temp_buku["kode_buku"]) {
-                            $isi['id_anggota']  = $temp_anggota['id_anggota'];
-                            $isi["nama_anggota"] = $temp_anggota["nama_anggota"];
-                            $isi['id_buku']     = $temp_buku['id_buku'];
-                            $isi["judul_buku"] = $temp_buku["judul_buku"];
-                            $isi["kode_anggota"] = $temp_anggota["kode_anggota"];
-                            $isi["kode_buku"] = $temp_buku["kode_buku"];
-                        }
-                    }else{
-                        echo "Kode Buku Tidak Ditemukan";
-                    }
+        $isi["content"] = "peminjaman/form_peminjaman";
+        $isi["judul"] = "Tambah Peminjaman";
+        if (!empty($this->input->get())) {
+            foreach($this->input->get() as $key) {
+                $temp_kode = $this->db->query("SELECT * FROM anggota WHERE kode_anggota='".$key."'")->row_array();
+                if (!empty($temp_kode)) {
+                    $isi["content"] = "peminjaman/buku_kode_satu";
+                    $isi["kode_anggota"] = $temp_kode["kode_anggota"];
                 }
-            }else{
-                echo "Kode Anggota Tidak Ditemukan";
             }
         }
-        $this->load->view('v_dashboard', $isi);
+        $this->load->view("v_dashboard", $isi);
     }
 
+    // Function Get Buku Pertama
+
+    public function get_buku_satu()
+    {
+        $isi["content"] = "peminjaman/buku_kode_satu";
+        $isi["judul"] = "Tambah Peminjaman";
+        if (!empty($this->input->post())) {
+            $temp_post = $this->input->post("kode_buku");
+            $temp_buku = $this->db->query("SELECT * FROM buku WHERE kode_buku='".$temp_post."'")->row_array();
+            if (!empty($temp_buku)) {
+                $isi["kode_anggota"] = $this->input->post("kode_anggota");
+                $isi["content"] = "peminjaman/buku_kode_dua";
+                $isi["kode_buku"] = $temp_buku["kode_buku"];
+            }else{
+                echo "eh kok ilang anjing goblok";
+            }
+            
+        }
+        $this->load->view("v_dashboard", $isi);
+    }
+
+    // Function Get Buku Kedua
+
+    public function get_buku_dua()
+    {
+        $isi["content"] = "peminjaman/buku_kode_dua";
+        $isi["judul"] = "Tambah Peminjaman";
+        if (!empty($this->input->post())) {
+            $temp_post = $this->input->post("kode_buku_dua");
+            $temp_buku = $this->db->query("SELECT * FROM buku WHERE kode_buku='".$temp_post."'")->row_array();
+            if (!empty($temp_buku)) {
+                $isi["kode_anggota"] = $this->input->post("kode_anggota");
+                $isi["kode_buku"] = $this->input->post("kode_buku_satu");
+                $isi["kode_buku_dua"] = $temp_buku["kode_buku"];
+                $isi["content"] = "peminjaman/buku_kode_tiga";
+            }else{
+                echo "eh kok ilang anjing goblok";
+            }
+            
+        }
+        $this->load->view("v_dashboard", $isi);
+    }
     
+    // Function Get Buku Ketiga
+
+    public function get_buku_tiga()
+    {
+        $isi["content"] = "peminjaman/buku_kode_tiga";
+        $isi["judul"] = "Tambah Peminjaman";
+        if (!empty($this->input->post())) {
+            $temp_post = $this->input->post("kode_buku_tiga");
+            $temp_buku = $this->db->query("SELECT * FROM buku WHERE kode_buku='".$temp_post."'")->row_array();
+            if (!empty($temp_buku)) {
+                $isi["kode_anggota"] = $this->input->post("kode_anggota");
+                $isi["kode_buku"] = $this->input->post("kode_buku_satu");
+                $isi["kode_buku_dua"] = $this->input->post("kode_buku_dua");
+                $isi["kode_buku_tiga"] = $temp_buku["kode_buku"];
+                $isi["content"] = "peminjaman/buku_kode_empat";
+            }else{
+                echo "eh kok ilang anjing goblok";
+            }
+            
+        }
+        $this->load->view("v_dashboard", $isi);
+    }
+
+    // Function Get Buku Empat
+
+    public function get_buku_empat()
+    {
+        $isi["content"] = "peminjaman/buku_kode_empat";
+        $isi["judul"] = "Tambah Peminjaman";
+        if (!empty($this->input->post())) {
+            $temp_post = $this->input->post("kode_buku_empat");
+            $temp_buku = $this->db->query("SELECT * FROM buku WHERE kode_buku='".$temp_post."'")->row_array();
+            if (!empty($temp_buku)) {
+                $isi["kode_anggota"] = $this->input->post("kode_anggota");
+                $isi["kode_buku"] = $this->input->post("kode_buku_satu");
+                $isi["kode_buku_dua"] = $this->input->post("kode_buku_dua");
+                $isi["kode_buku_tiga"] = $this->input->post("kode_buku_tiga");
+                $isi["kode_buku_empat"] = $temp_buku["kode_buku"];
+                $isi["content"] = "peminjaman/buku_kode_lima";
+            }else{
+                echo "eh kok ilang anjing goblok";
+            }
+            
+        }
+        $this->load->view("v_dashboard", $isi);
+    }
+
+    // Function Get Kode Lima
+
+    public function get_buku_lima()
+    {
+        $isi["content"] = "peminjaman/buku_kode_empat";
+        $isi["judul"] = "Tambah Peminjaman";
+        if (!empty($this->input->post())) {
+            $temp_post = $this->input->post("kode_buku_lima");
+            $temp_buku = $this->db->query("SELECT * FROM buku WHERE kode_buku='".$temp_post."'")->row_array();
+            if (!empty($temp_buku)) {
+                $isi["kode_anggota"] = $this->input->post("kode_anggota");
+                $isi["kode_buku"] = $this->input->post("kode_buku_satu");
+                $isi["kode_buku_dua"] = $this->input->post("kode_buku_dua");
+                $isi["kode_buku_tiga"] = $this->input->post("kode_buku_tiga");
+                $isi["kode_buku_empat"] = $this->input->post("kode_buku_empat");
+                $isi["kode_buku_lima"] = $temp_buku["kode_buku"];
+                $isi["content"] = "peminjaman/buku_all_kode";
+            }else{
+                echo "eh kok ilang anjing goblok";
+            }
+            
+        }
+        $this->load->view("v_dashboard", $isi);
+    }
+
     public function simpan()
     {
         $data = array(
@@ -63,7 +186,7 @@ class Peminjaman extends CI_Controller {
         $query = $this->db->insert('peminjaman', $data);
         if ($query = true) {
             $this->session->set_flashdata('info', 'Data Berhasil Di Simpan');
-            redirect('Peminjaman');
+            redirect('peminjaman');
         }
     }
 
