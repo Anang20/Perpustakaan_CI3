@@ -18,6 +18,11 @@
                 <?php endif ?>
             </div>
             <hr>
+            <?php if(!empty($error_msg_buku_satu)): ?>
+                <div class="alert alert-danger" role="alert">
+                    <?= $error_msg_buku_satu ?>
+                </div>
+            <?php endif ?>
             <form action="<?= base_url("peminjaman/get_buku_satu") ?>" method="POST">
                 <div class="row mb-4">
                     <label class="col-sm-2 col-form-label">Kode Buku</label>

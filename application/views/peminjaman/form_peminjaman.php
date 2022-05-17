@@ -6,6 +6,18 @@
     $tgl_kembali = date('Y-m-d', $tujuh_hari);
 ?>
 
+<div class="container">
+    <div class="row">
+        <div class="col-6 mx-auto">
+            <?php if(!empty($error_msg_anggota)): ?>
+                <div class="alert alert-danger" role="alert">
+                    <?= $error_msg_anggota ?>
+                </div>
+            <?php endif ?>
+        </div>
+    </div>
+</div>
+
 <div class="container-fluid">
     <div class="card shadow">
         <div class="card-body">

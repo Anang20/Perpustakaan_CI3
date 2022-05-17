@@ -18,32 +18,50 @@
                 <?php endif ?>
             </div>
             <hr>
-            <form action="<?= base_url("peminjaman/get_buku_lima") ?>" method="POST">
 
-            <!-- Menampilkan Kode -->
-
-                <label class="col-form-label">Kode Buku ( Batas 5 Buku Peminjaman )</label> <br>
-                <?php  if(!empty($kode_buku)) : ?>
-                    <label class="col-form-label"><?php echo "1. ". $kode_buku ?></label> <br>
-                <?php endif ?>
-                <?php  if(!empty($kode_buku_dua)) : ?>
-                    <label class="col-form-label"><?php echo "2. ". $kode_buku_dua ?></label> <br>
-                <?php endif ?>
-                <?php  if(!empty($kode_buku_tiga)) : ?>
-                    <label class="col-form-label"><?php echo "3. ". $kode_buku_tiga ?></label> <br>
-                <?php endif ?>
-                <?php  if(!empty($kode_buku_empat)) : ?>
-                    <label class="col-form-label"><?php echo "4. ". $kode_buku_empat ?></label> <br>
-                <?php endif ?>
-                <?php  if(!empty($kode_buku_lima)) : ?>
-                    <label class="col-form-label"><?php echo "5. ". $kode_buku_lima ?></label> <br>
-                <?php endif ?>
-
-            <!-- End -->
-            <!-- Form -->
-            
-            </form>
-            <!-- End -->
+            <div class="row">
+                <div class="col-6">
+                    <label class="col-form-label">Kode Buku ( Batas 5 Buku Peminjaman )</label> <br>
+                    <?php  if(!empty($kode_buku)) : ?>
+                        <label class="col-form-label"><?php echo "1. ". $kode_buku ?></label> <br>
+                    <?php endif ?>
+                    <?php  if(!empty($kode_buku_dua)) : ?>
+                        <label class="col-form-label"><?php echo "2. ". $kode_buku_dua ?></label> <br>
+                    <?php endif ?>
+                    <?php  if(!empty($kode_buku_tiga)) : ?>
+                        <label class="col-form-label"><?php echo "3. ". $kode_buku_tiga ?></label> <br>
+                    <?php endif ?>
+                    <?php  if(!empty($kode_buku_empat)) : ?>
+                        <label class="col-form-label"><?php echo "4. ". $kode_buku_empat ?></label> <br>
+                    <?php endif ?>
+                    <?php  if(!empty($kode_buku_lima)) : ?>
+                        <label class="col-form-label"><?php echo "5. ". $kode_buku_lima ?></label> <br>
+                    <?php endif ?>
+                </div>
+                <div class="col-6 border-left">
+                    <form action="" method="post">
+                        <div class="row mb-4 mt-2">
+                            <div class="col-12">
+                                <div class="row">
+                                    <label class="col-sm-5 col-form-label">Tanggal Peminjaman</label>
+                                    <div class="col-sm-7">
+                                        <input type="date" name="tgl_peminjaman" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <label class="col-sm-5 col-form-label">Tanggal Pengembalian</label>
+                                    <div class="col-sm-7">
+                                        <input type="date" name="tgl_pengembalian" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-6 mx-auto mt-3">
+                                    <button type="submit" class="btn btn-primary" name="btn_simpan_satu">Simpan Pinjaman</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </div>

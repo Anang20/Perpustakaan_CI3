@@ -48,10 +48,13 @@ class Peminjaman extends CI_Controller {
         $isi["judul"] = "Tambah Peminjaman";
         if (!empty($this->input->get())) {
             foreach($this->input->get() as $key) {
+                $temp_get = $this->input->get();
                 $temp_kode = $this->db->query("SELECT * FROM anggota WHERE kode_anggota='".$key."'")->row_array();
                 if (!empty($temp_kode)) {
                     $isi["content"] = "peminjaman/buku_kode_satu";
                     $isi["kode_anggota"] = $temp_kode["kode_anggota"];
+                }else{
+                    $isi["error_msg_anggota"] = "Maaf, Kode <b>". $temp_get["kode_anggota"]."</b> Tidak Ditemukan";
                 }
             }
         }
@@ -72,7 +75,8 @@ class Peminjaman extends CI_Controller {
                 $isi["content"] = "peminjaman/buku_kode_dua";
                 $isi["kode_buku"] = $temp_buku["kode_buku"];
             }else{
-                echo "eh kok ilang anjing goblok";
+                $isi["kode_anggota"] = $this->input->post("kode_anggota");
+                $isi["error_msg_buku_satu"] = "Maaf, Kode Buku <b>". $temp_post ." </b>Tidak Ditemukan";
             }
             
         }
@@ -94,7 +98,9 @@ class Peminjaman extends CI_Controller {
                 $isi["kode_buku_dua"] = $temp_buku["kode_buku"];
                 $isi["content"] = "peminjaman/buku_kode_tiga";
             }else{
-                echo "eh kok ilang anjing goblok";
+                $isi["kode_anggota"] = $this->input->post("kode_anggota");
+                $isi["kode_buku"] = $this->input->post("kode_buku_satu");
+                $isi["error_msg_buku_dua"] = "Maaf, Kode Buku <b>". $temp_post." </b>Tidak Ditemukan"; 
             }
             
         }
@@ -117,7 +123,10 @@ class Peminjaman extends CI_Controller {
                 $isi["kode_buku_tiga"] = $temp_buku["kode_buku"];
                 $isi["content"] = "peminjaman/buku_kode_empat";
             }else{
-                echo "eh kok ilang anjing goblok";
+                $isi["kode_anggota"] = $this->input->post("kode_anggota");
+                $isi["kode_buku"] = $this->input->post("kode_buku_satu");
+                $isi["kode_buku_dua"] = $this->input->post("kode_buku_dua");
+                $isi["error_msg_buku_tiga"] = "Maaf, Kode Buku <b>". $temp_post."</b> Tidak Ditemukan";
             }
             
         }
@@ -141,7 +150,11 @@ class Peminjaman extends CI_Controller {
                 $isi["kode_buku_empat"] = $temp_buku["kode_buku"];
                 $isi["content"] = "peminjaman/buku_kode_lima";
             }else{
-                echo "eh kok ilang anjing goblok";
+                $isi["kode_anggota"] = $this->input->post("kode_anggota");
+                $isi["kode_buku"] = $this->input->post("kode_buku_satu");
+                $isi["kode_buku_dua"] = $this->input->post("kode_buku_dua");
+                $isi["kode_buku_tiga"] = $this->input->post("kode_buku_tiga");
+                $isi["error_msg_buku_empat"] = "Maaf, Kode Buku <b>". $temp_post ." </b>Tidak Ditemukan";
             }
             
         }
@@ -152,7 +165,7 @@ class Peminjaman extends CI_Controller {
 
     public function get_buku_lima()
     {
-        $isi["content"] = "peminjaman/buku_kode_empat";
+        $isi["content"] = "peminjaman/buku_kode_lima";
         $isi["judul"] = "Tambah Peminjaman";
         if (!empty($this->input->post())) {
             $temp_post = $this->input->post("kode_buku_lima");
@@ -166,7 +179,12 @@ class Peminjaman extends CI_Controller {
                 $isi["kode_buku_lima"] = $temp_buku["kode_buku"];
                 $isi["content"] = "peminjaman/buku_all_kode";
             }else{
-                echo "eh kok ilang anjing goblok";
+                $isi["kode_anggota"] = $this->input->post("kode_anggota");
+                $isi["kode_buku"] = $this->input->post("kode_buku_satu");
+                $isi["kode_buku_dua"] = $this->input->post("kode_buku_dua");
+                $isi["kode_buku_tiga"] = $this->input->post("kode_buku_tiga");
+                $isi["kode_buku_empat"] = $this->input->post("kode_buku_empat");
+                $isi["error_msg_buku_lima"] = "Maaf, Kode Buku <b> ".$temp_post."</b> Tidak Ditemukan";
             }
             
         }
