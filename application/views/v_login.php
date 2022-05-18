@@ -19,6 +19,8 @@
 
     <!-- Custom styles for this template-->
     <link href="<?= base_url('assets/'); ?>css/sb-admin-2.min.css" rel="stylesheet">
+    <!-- icon logo -->
+    <link rel="shortcut icon" href="<?= base_url('assets/img/logo-epus.png'); ?>" type="image/x-icon" class="rounded-circle">
 
 </head>
 
