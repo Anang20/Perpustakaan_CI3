@@ -39,23 +39,29 @@
                     <?php endif ?>
                 </div>
                 <div class="col-6 border-left">
-                    <form action="" method="post">
+                    <form action="<?= base_url("peminjaman/simpan_buku_lima") ?>" method="post">
                         <div class="row mb-4 mt-2">
                             <div class="col-12">
                                 <div class="row">
                                     <label class="col-sm-5 col-form-label">Tanggal Peminjaman</label>
                                     <div class="col-sm-7">
-                                        <input type="date" name="tgl_peminjaman" class="form-control">
+                                        <input type="date" name="tgl_pinjam" value="<?php echo $tgl_pinjam ?>" class="form-control">
                                     </div>
                                 </div>
                                 <div class="row mt-3">
                                     <label class="col-sm-5 col-form-label">Tanggal Pengembalian</label>
                                     <div class="col-sm-7">
-                                        <input type="date" name="tgl_pengembalian" class="form-control">
+                                        <input type="date" name="tgl_kembali" value="<?php echo $tgl_kembali ?>" class="form-control">
                                     </div>
                                 </div>
+                                <?php if(!empty($kode_anggota)) : ?>
+                                    <input type="hidden" name="kode_anggota" value="<?php echo $kode_anggota ?>">
+                                <?php endif ?>
+                                <?php  if(!empty($kode_buku_lima)) : ?>
+                                    <input type="hidden" name="kode_buku_lima" value="<?php echo $kode_buku_lima ?>">
+                                <?php endif ?>
                                 <div class="col-6 mx-auto mt-3">
-                                    <button type="submit" class="btn btn-primary" name="btn_simpan_satu">Simpan Pinjaman</button>
+                                    <button type="submit" class="btn btn-primary">Simpan Pinjaman</button>
                                 </div>
                             </div>
                         </div>

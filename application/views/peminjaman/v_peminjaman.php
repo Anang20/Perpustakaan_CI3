@@ -39,7 +39,7 @@
                                 ?>
                                 <tr>
                                     <td><?= $no++; ?></td>
-                                    <td><?= $row->kode_peminjaman; ?></td>
+                                    <td><?= 'PM'. $row->id_pinjam; ?></td>
                                     <td><?= $row->nama_anggota ?></td>
                                     <td><?= $row->judul_buku ?></td>
                                     <td><?= $row->tgl_pinjam ?></td>
