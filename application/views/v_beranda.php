@@ -95,7 +95,7 @@ http://tympanus.net/codrops/2013/06/18/caption-hover-effects/
       <div class="col-md-9 col-sm-8 wow fadeInUp" data-wow-delay="0.2s">
         <div class="about-thumb">
           <h1>Latar Belakang</h1>
-          <p>Perpustakaan merupakan sumber/tempat untuk menemukan data. Perpustakaan tersebut membutuhkan Sistem Informasi yang dapat mengatur dan mengelola perpustakaan beserta data-data dengan baik. </p>
+          <p>Perpustakaan merupakan sumber/tempat untuk menemukan data. Perpustakaan tersebut membutuhkan sistem informasi yang dapat mengatur dan mengelola perpustakaan beserta data-data yang terstruktur dengan rapi. </p>
         </div>
       </div>
 
