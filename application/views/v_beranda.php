@@ -7,6 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="keywords" content="">
 	<meta name="description" content="">
+  <link rel="shortcut icon" href="<?= base_url('assets/img/logo-epus.png'); ?>" type="image/x-icon" class="rounded-circle">
 
 	<title>e-Pus </title>
 <!--
@@ -49,18 +50,19 @@ http://tympanus.net/codrops/2013/06/18/caption-hover-effects/
     <div class="container">
 
       <div class="navbar-header">
-        <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <button class="navbar-toggle" style="margin-top: 35px;" data-toggle="collapse" data-target=".navbar-collapse">
           <span class="icon icon-bar"></span>
           <span class="icon icon-bar"></span>
           <span class="icon icon-bar"></span>
         </button>
-        <a href="#top" class="navbar-brand smoothScroll">e-Pus</a>
+        <img src="<?= base_url('assets/img/logo-epus.png'); ?>" style="width: 100px; height: 100px" class="navbar-brand smoothScroll" alt="">
+        <!-- <a href="#top" class="navbar-brand smoothScroll">e</a> -->
       </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#top" class="smoothScroll"><span>Beranda</span></a></li>
-            <li><a href="#about" class="smoothScroll"><span>Tentang</span></a></li>
-            <li><a href="#gallery" class="smoothScroll"><span>Galeri</span></a></li>
+            <li><a href="#top" class="smoothScroll" style="margin-top: 20px;"><span>Beranda</span></a></li>
+            <li><a href="#about" class="smoothScroll" style="margin-top: 20px;"><span>Tentang</span></a></li>
+            <li><a href="#gallery" class="smoothScroll" style="margin-top: 20px;"><span>Galeri</span></a></li>
           </ul>
        </div>
 
@@ -74,11 +76,9 @@ http://tympanus.net/codrops/2013/06/18/caption-hover-effects/
   <div class="overlay"></div>
   <div class="container">
     <div class="row">
-
       <div class="col-md-offset-1 col-md-10 col-sm-12 wow fadeInUp" data-wow-delay="0.3s">
         <h1 class="wow fadeInUp" data-wow-delay="0.6s">e-Pus</h1>
         <p class="wow fadeInUp" data-wow-delay="0.9s">Semakin banyak Anda membaca, semakin banyak hal yang Anda ketahui. Semakin banyak yang Anda pelajari, semakin banyak ilmu yang Anda dapat.</p>
-        <a href="<?= base_url('Login'); ?>" class="smoothScroll btn btn-success btn-lg wow fadeInUp" data-wow-delay="1.2s">Masuk</a>
       </div>
 
     </div>
