@@ -36,7 +36,7 @@
                         </div>
                         <div class="row" style="margin-top: 42px;">
                             <div class="col-8 mt-1 text-white">
-                                <p class="">Kode Anggota : <b><?= $data["kode_anggota"] ?></b></b></p>
+                                <p class="ml-5"><b><?= $data["kode_anggota"] ?></b></p>
                             </div>
                             <div class="col-4">
                                 <span>
